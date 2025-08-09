@@ -2,7 +2,25 @@
     "name": "Chauffage_2023",
     "description": "A Node-RED Project",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "@flowfuse/node-red-dashboard": "1.8.1",
+        "node-red-contrib-debounce": "0.0.2",
+        "node-red-node-serialport": "2.0.2",
+        "node-red-node-random": "0.4.1",
+        "node-red-node-pi-gpio": "2.0.6",
+        "node-red-node-openweathermap": "1.0.1",
+        "node-red-node-arduino": "1.0.0",
+        "node-red-dashboard": "3.6.5",
+        "node-red-contrib-ui-svg": "2.3.3",
+        "node-red-contrib-ui-state-trail": "1.0.2",
+        "node-red-contrib-ui-level": "0.1.46",
+        "node-red-contrib-ui-led": "0.4.11",
+        "node-red-contrib-simpletime": "2.11.1",
+        "node-red-contrib-sensor-ds18b20": "0.2.0",
+        "node-red-contrib-rpi-shutdown": "0.0.2",
+        "node-red-contrib-os": "0.2.1",
+        "node-red-contrib-home-assistant-websocket": "0.64.0"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flows.json",
