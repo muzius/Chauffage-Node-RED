@@ -1323,7 +1323,7 @@
                 "cols": "12"
             }
         ],
-        "order": 4,
+        "order": 5,
         "className": "",
         "visible": "true",
         "disabled": "false"
@@ -1362,7 +1362,7 @@
         "ui": "1eefafb17ac9eb3a",
         "path": "http://192.168.1.20:1880/",
         "icon": "tools",
-        "order": 3,
+        "order": 4,
         "visible": "true",
         "disabled": "false"
     },
@@ -1397,10 +1397,60 @@
                 "cols": "12"
             }
         ],
+        "order": 3,
+        "className": "",
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "68f5d0b7c3f78072",
+        "type": "ui-page",
+        "name": "Réglage",
+        "ui": "1eefafb17ac9eb3a",
+        "path": "/reglage",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "59ba092d0a2ecbbe",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
         "order": 2,
         "className": "",
         "visible": true,
         "disabled": false
+    },
+    {
+        "id": "99f0023e00974b68",
+        "type": "ui-group",
+        "name": "Vannes",
+        "page": "68f5d0b7c3f78072",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
     },
     {
         "id": "fbe427445467dcba",
@@ -2496,7 +2546,7 @@
         "id": "4ee897f8cff0877c",
         "type": "change",
         "z": "b4a9d9fc0fb382cd",
-        "name": "open",
+        "name": "ouv",
         "rules": [
             {
                 "t": "set",
@@ -2524,13 +2574,13 @@
         "id": "2f0779db3cf530bf",
         "type": "change",
         "z": "b4a9d9fc0fb382cd",
-        "name": "close",
+        "name": "fer",
         "rules": [
             {
                 "t": "set",
-                "p": "topic",
+                "p": "sens",
                 "pt": "msg",
-                "to": "close",
+                "to": "fer",
                 "tot": "str"
             }
         ],
@@ -2543,7 +2593,8 @@
         "y": 880,
         "wires": [
             [
-                "ee7b9c64ee9013b0"
+                "ee7b9c64ee9013b0",
+                "723972f7b591f33e"
             ]
         ]
     },
@@ -2564,13 +2615,13 @@
         "id": "d4d5a7ab157f0c42",
         "type": "change",
         "z": "b4a9d9fc0fb382cd",
-        "name": "open",
+        "name": "ouv",
         "rules": [
             {
                 "t": "set",
-                "p": "topic",
+                "p": "sens",
                 "pt": "msg",
-                "to": "open",
+                "to": "ouv",
                 "tot": "str"
             }
         ],
@@ -2591,13 +2642,13 @@
         "id": "77c875e316eb4751",
         "type": "change",
         "z": "b4a9d9fc0fb382cd",
-        "name": "close",
+        "name": "fer",
         "rules": [
             {
                 "t": "set",
-                "p": "topic",
+                "p": "sens",
                 "pt": "msg",
-                "to": "close",
+                "to": "fer",
                 "tot": "str"
             }
         ],
@@ -2677,7 +2728,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 620,
+        "x": 540,
         "y": 800,
         "wires": []
     },
@@ -2693,7 +2744,7 @@
         "out": "out",
         "bcm": true,
         "x": 390,
-        "y": 540,
+        "y": 940,
         "wires": []
     },
     {
@@ -2718,7 +2769,7 @@
         "payload": "true",
         "payloadType": "bool",
         "x": 130,
-        "y": 520,
+        "y": 920,
         "wires": [
             [
                 "bc6326746b4fa637"
@@ -2747,7 +2798,7 @@
         "payload": "false",
         "payloadType": "bool",
         "x": 130,
-        "y": 560,
+        "y": 960,
         "wires": [
             [
                 "bc6326746b4fa637"
@@ -2766,7 +2817,7 @@
         "out": "out",
         "bcm": true,
         "x": 390,
-        "y": 620,
+        "y": 1020,
         "wires": []
     },
     {
@@ -2791,7 +2842,7 @@
         "payload": "true",
         "payloadType": "bool",
         "x": 130,
-        "y": 600,
+        "y": 1000,
         "wires": [
             [
                 "2b4ff4fa59a44d35"
@@ -2820,7 +2871,7 @@
         "payload": "false",
         "payloadType": "bool",
         "x": 130,
-        "y": 640,
+        "y": 1040,
         "wires": [
             [
                 "2b4ff4fa59a44d35"
@@ -2839,7 +2890,7 @@
         "out": "out",
         "bcm": true,
         "x": 390,
-        "y": 700,
+        "y": 1100,
         "wires": []
     },
     {
@@ -2864,7 +2915,7 @@
         "payload": "true",
         "payloadType": "bool",
         "x": 130,
-        "y": 680,
+        "y": 1080,
         "wires": [
             [
                 "e36dc28683e001da"
@@ -2893,7 +2944,7 @@
         "payload": "false",
         "payloadType": "bool",
         "x": 130,
-        "y": 720,
+        "y": 1120,
         "wires": [
             [
                 "e36dc28683e001da"
@@ -2912,7 +2963,7 @@
         "out": "out",
         "bcm": true,
         "x": 670,
-        "y": 920,
+        "y": 600,
         "wires": []
     },
     {
@@ -2938,7 +2989,7 @@
         "payload": "true",
         "payloadType": "bool",
         "x": 130,
-        "y": 920,
+        "y": 600,
         "wires": [
             [
                 "68612b13d467074f",
@@ -2969,7 +3020,7 @@
         "payload": "true",
         "payloadType": "bool",
         "x": 130,
-        "y": 1000,
+        "y": 680,
         "wires": [
             [
                 "68612b13d467074f",
@@ -2984,7 +3035,7 @@
         "name": "Relais chauffe accu",
         "info": "",
         "x": 130,
-        "y": 480,
+        "y": 880,
         "wires": []
     },
     {
@@ -3001,7 +3052,7 @@
         "id": "97bf355dcd81b1cd",
         "type": "rpi-gpio out",
         "z": "bad0d5e8ce8cf0c6",
-        "name": "K1 CPL",
+        "name": "K1 CCP",
         "pin": "6",
         "set": true,
         "level": "1",
@@ -3033,7 +3084,7 @@
         "y": 180,
         "wires": [
             [
-                "307c361b1568173d"
+                "346508db2fc96785"
             ]
         ]
     },
@@ -3058,7 +3109,7 @@
         "y": 140,
         "wires": [
             [
-                "307c361b1568173d"
+                "346508db2fc96785"
             ]
         ]
     },
@@ -3066,14 +3117,14 @@
         "id": "35e35f4199e5276a",
         "type": "rpi-gpio out",
         "z": "bad0d5e8ce8cf0c6",
-        "name": "K2",
+        "name": "K2 (DEFECT)",
         "pin": "13",
         "set": true,
         "level": "1",
         "freq": "",
         "out": "out",
         "bcm": true,
-        "x": 630,
+        "x": 660,
         "y": 240,
         "wires": []
     },
@@ -3081,7 +3132,7 @@
         "id": "ee1f2db453471feb",
         "type": "inject",
         "z": "bad0d5e8ce8cf0c6",
-        "name": "true",
+        "name": "ON",
         "props": [
             {
                 "p": "payload"
@@ -3095,10 +3146,10 @@
         "payload": "true",
         "payloadType": "bool",
         "x": 130,
-        "y": 220,
+        "y": 300,
         "wires": [
             [
-                "346508db2fc96785"
+                "307c361b1568173d"
             ]
         ]
     },
@@ -3106,7 +3157,7 @@
         "id": "e3fb7ecd82dad213",
         "type": "inject",
         "z": "bad0d5e8ce8cf0c6",
-        "name": "false",
+        "name": "OFF",
         "props": [
             {
                 "p": "payload"
@@ -3120,10 +3171,10 @@
         "payload": "false",
         "payloadType": "bool",
         "x": 130,
-        "y": 260,
+        "y": 340,
         "wires": [
             [
-                "346508db2fc96785"
+                "307c361b1568173d"
             ]
         ]
     },
@@ -3131,14 +3182,14 @@
         "id": "7a4cab5249f244a1",
         "type": "rpi-gpio out",
         "z": "bad0d5e8ce8cf0c6",
-        "name": "K3",
+        "name": "K3 CLP",
         "pin": "19",
         "set": true,
         "level": "1",
         "freq": "",
         "out": "out",
         "bcm": true,
-        "x": 510,
+        "x": 640,
         "y": 320,
         "wires": []
     },
@@ -3164,10 +3215,10 @@
         "payload": "true",
         "payloadType": "bool",
         "x": 130,
-        "y": 300,
+        "y": 220,
         "wires": [
             [
-                "7a4cab5249f244a1"
+                "35e35f4199e5276a"
             ]
         ]
     },
@@ -3193,10 +3244,10 @@
         "payload": "false",
         "payloadType": "bool",
         "x": 130,
-        "y": 340,
+        "y": 260,
         "wires": [
             [
-                "7a4cab5249f244a1"
+                "35e35f4199e5276a"
             ]
         ]
     },
@@ -3285,7 +3336,7 @@
         "out": "out",
         "bcm": true,
         "x": 670,
-        "y": 840,
+        "y": 520,
         "wires": []
     },
     {
@@ -3306,7 +3357,7 @@
         "payload": "true",
         "payloadType": "bool",
         "x": 130,
-        "y": 820,
+        "y": 500,
         "wires": [
             [
                 "977444329661ef05"
@@ -3331,7 +3382,7 @@
         "payload": "false",
         "payloadType": "bool",
         "x": 130,
-        "y": 860,
+        "y": 540,
         "wires": [
             [
                 "977444329661ef05"
@@ -3342,8 +3393,8 @@
         "id": "307c361b1568173d",
         "type": "ui-switch",
         "z": "bad0d5e8ce8cf0c6",
-        "name": "CPL (pompe logement)",
-        "label": "Pompe Logement (CPL)",
+        "name": "CLP (pompe logement)",
+        "label": "Pompe Logement (CLP)",
         "group": "6003beaf3e655f88",
         "order": 1,
         "width": "2",
@@ -3364,11 +3415,11 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 330,
-        "y": 160,
+        "x": 310,
+        "y": 320,
         "wires": [
             [
-                "0af208023f4261b1"
+                "f7a54ac6d13f0484"
             ]
         ]
     },
@@ -3376,11 +3427,11 @@
         "id": "346508db2fc96785",
         "type": "ui-switch",
         "z": "bad0d5e8ce8cf0c6",
-        "name": "K2",
-        "label": "K2",
+        "name": "CCP(pompe chaudière)",
+        "label": "Pompe Chaudière (CCL)",
         "group": "6003beaf3e655f88",
         "order": 2,
-        "width": "4",
+        "width": 2,
         "height": "1",
         "passthru": true,
         "decouple": false,
@@ -3398,12 +3449,11 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 270,
-        "y": 240,
+        "x": 310,
+        "y": 160,
         "wires": [
             [
-                "f7a54ac6d13f0484",
-                "96cb8343b8fd0ce3"
+                "0af208023f4261b1"
             ]
         ]
     },
@@ -3420,10 +3470,10 @@
         "finalize": "",
         "libs": [],
         "x": 510,
-        "y": 240,
+        "y": 320,
         "wires": [
             [
-                "35e35f4199e5276a"
+                "7a4cab5249f244a1"
             ]
         ],
         "icon": "node-red/swap.svg"
@@ -3476,7 +3526,7 @@
         "officon": "",
         "offcolor": "",
         "x": 270,
-        "y": 540,
+        "y": 940,
         "wires": [
             [
                 "8cae6036f22da9f4"
@@ -3510,7 +3560,7 @@
         "officon": "",
         "offcolor": "",
         "x": 270,
-        "y": 620,
+        "y": 1020,
         "wires": [
             [
                 "2e518e487f779969"
@@ -3544,7 +3594,7 @@
         "officon": "",
         "offcolor": "",
         "x": 270,
-        "y": 700,
+        "y": 1100,
         "wires": [
             [
                 "4ee0c134286ff892"
@@ -3557,7 +3607,7 @@
         "z": "bad0d5e8ce8cf0c6",
         "group": "45f5ebcd30441960",
         "name": "",
-        "order": 2,
+        "order": 3,
         "width": 0,
         "height": 0,
         "label": "state timeline",
@@ -3584,8 +3634,8 @@
         "rangeLimitUnit": "3600",
         "showTimeMarkers": true,
         "showOnlyStartEndTimes": true,
-        "x": 470,
-        "y": 200,
+        "x": 530,
+        "y": 80,
         "wires": [
             []
         ]
@@ -3597,7 +3647,7 @@
         "name": "Relais statiques",
         "info": "",
         "x": 120,
-        "y": 780,
+        "y": 460,
         "wires": []
     },
     {
@@ -3612,7 +3662,7 @@
         "out": "out",
         "bcm": true,
         "x": 670,
-        "y": 980,
+        "y": 660,
         "wires": []
     },
     {
@@ -3633,7 +3683,7 @@
         "payload": "false",
         "payloadType": "bool",
         "x": 130,
-        "y": 960,
+        "y": 640,
         "wires": [
             [
                 "68612b13d467074f",
@@ -3653,7 +3703,7 @@
         "out": "out",
         "bcm": true,
         "x": 670,
-        "y": 1060,
+        "y": 740,
         "wires": []
     },
     {
@@ -3879,7 +3929,7 @@
         "out": "out",
         "bcm": true,
         "x": 670,
-        "y": 1120,
+        "y": 800,
         "wires": []
     },
     {
@@ -3887,7 +3937,7 @@
         "type": "function",
         "z": "bad0d5e8ce8cf0c6",
         "name": "CCY",
-        "func": "// Initialisation des états de sorties (par défaut false)\nlet open = false;\nlet close = false;\n\nif (msg.sens === \"ouv\") {\n    // Si on ouvre, on ferme obligatoirement l'autre\n    open = msg.payload === true;\n    close = false;\n} else if (msg.topsensic === \"fer\") {\n    // Si on ferme, on ouvre obligatoirement l'autre\n    close = msg.payload === true;\n    open = false;\n} else {\n    // Optionnel : gérer les topics inconnus\n    if (msg.payload === false) {\n        open = false;\n        close = false;\n    }\n}\n\n// Préparation des messages pour chaque sortie\nreturn [\n    { payload: open },   // 1ère sortie : Ouvrir\n    { payload: close }   // 2ème sortie : Fermer\n];",
+        "func": "// Initialisation des états de sorties (par défaut false)\nlet open = false;\nlet close = false;\n\nif (msg.sens === \"ouv\") {\n    // Si on ouvre, on ferme obligatoirement l'autre\n    open = msg.payload === true;\n    close = false;\n} else if (msg.sens === \"fer\") {\n    // Si on ferme, on ouvre obligatoirement l'autre\n    close = msg.payload === true;\n    open = false;\n} else {\n    // Optionnel : gérer les topics inconnus\n    if (msg.payload === false) {\n        open = false;\n        close = false;\n    }\n}\n\n// Préparation des messages pour chaque sortie\nreturn [\n    { payload: open },   // 1ère sortie : Ouvrir\n    { payload: close }   // 2ème sortie : Fermer\n];",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -3895,7 +3945,7 @@
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 920,
+        "y": 600,
         "wires": [
             [
                 "1f21768faf56e4b8"
@@ -3910,7 +3960,7 @@
         "type": "function",
         "z": "bad0d5e8ce8cf0c6",
         "name": "CLY",
-        "func": "// Initialisation des états de sorties (par défaut false)\nlet open = false;\nlet close = false;\n\nif (msg.sens === \"ouv\") {\n    // Si on ouvre, on ferme obligatoirement l'autre\n    open = msg.payload === true;\n    close = false;\n} else if (msg.topsensic === \"fer\") {\n    // Si on ferme, on ouvre obligatoirement l'autre\n    close = msg.payload === true;\n    open = false;\n} else {\n    // Optionnel : gérer les topics inconnus\n    if (msg.payload === false) {\n        open = false;\n        close = false;\n    }\n}\n\n// Préparation des messages pour chaque sortie\nreturn [\n    { payload: open },   // 1ère sortie : Ouvrir\n    { payload: close }   // 2ème sortie : Fermer\n];",
+        "func": "// Initialisation des états de sorties (par défaut false)\nlet open = false;\nlet close = false;\n\nif (msg.sens === \"ouv\") {\n    // Si on ouvre, on ferme obligatoirement l'autre\n    open = msg.payload === true;\n    close = false;\n} else if (msg.sens === \"fer\") {\n    // Si on ferme, on ouvre obligatoirement l'autre\n    close = msg.payload === true;\n    open = false;\n} else {\n    // Optionnel : gérer les topics inconnus\n    if (msg.payload === false) {\n        open = false;\n        close = false;\n    }\n}\n\n// Préparation des messages pour chaque sortie\nreturn [\n    { payload: open },   // 1ère sortie : Ouvrir\n    { payload: close }   // 2ème sortie : Fermer\n];",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -3918,7 +3968,7 @@
         "finalize": "",
         "libs": [],
         "x": 430,
-        "y": 1060,
+        "y": 740,
         "wires": [
             [
                 "8ccf4f1f59b8d819"
@@ -3938,7 +3988,7 @@
             "585b3fd626f7518c"
         ],
         "x": 395,
-        "y": 1000,
+        "y": 680,
         "wires": []
     },
     {
@@ -3950,7 +4000,7 @@
             "ee7b9c64ee9013b0"
         ],
         "x": 335,
-        "y": 960,
+        "y": 640,
         "wires": [
             [
                 "68612b13d467074f",
@@ -3967,7 +4017,7 @@
             "3de172f738637c42"
         ],
         "x": 335,
-        "y": 1100,
+        "y": 780,
         "wires": [
             [
                 "ead4e2a5e1369081",
@@ -3998,7 +4048,7 @@
         "payload": "true",
         "payloadType": "bool",
         "x": 130,
-        "y": 1060,
+        "y": 740,
         "wires": [
             [
                 "ead4e2a5e1369081",
@@ -4029,7 +4079,7 @@
         "payload": "true",
         "payloadType": "bool",
         "x": 130,
-        "y": 1140,
+        "y": 820,
         "wires": [
             [
                 "ead4e2a5e1369081",
@@ -4055,7 +4105,7 @@
         "payload": "false",
         "payloadType": "bool",
         "x": 130,
-        "y": 1100,
+        "y": 780,
         "wires": [
             [
                 "ead4e2a5e1369081",
@@ -4073,7 +4123,7 @@
             "7c5d67fed9a4b7cb"
         ],
         "x": 395,
-        "y": 1140,
+        "y": 820,
         "wires": []
     },
     {
@@ -4089,7 +4139,7 @@
         "finalize": "",
         "libs": [],
         "x": 450,
-        "y": 840,
+        "y": 520,
         "wires": [
             [
                 "bf3efc77de503cc6"
@@ -4106,7 +4156,7 @@
             "5c50629c516aa946"
         ],
         "x": 315,
-        "y": 880,
+        "y": 560,
         "wires": [
             [
                 "977444329661ef05"
@@ -5950,7 +6000,7 @@
         "group": "6003beaf3e655f88",
         "name": "Chauffage",
         "label": "",
-        "order": 7,
+        "order": 9,
         "chartType": "line",
         "category": "topic",
         "categoryType": "msg",
@@ -6827,7 +6877,7 @@
         "z": "e93be114ec7eee96",
         "name": "",
         "group": "45f5ebcd30441960",
-        "order": 1,
+        "order": 2,
         "width": 3,
         "height": 3,
         "gtype": "gauge-half",
@@ -6867,7 +6917,7 @@
         "z": "e93be114ec7eee96",
         "name": "",
         "group": "45f5ebcd30441960",
-        "order": 3,
+        "order": 4,
         "width": "3",
         "height": "3",
         "gtype": "gauge-half",
@@ -6961,7 +7011,7 @@
         "z": "e93be114ec7eee96",
         "name": "",
         "group": "45f5ebcd30441960",
-        "order": 4,
+        "order": 5,
         "width": "3",
         "height": "2",
         "gtype": "gauge-half",
@@ -7001,7 +7051,7 @@
         "z": "e93be114ec7eee96",
         "name": "T. Sol",
         "group": "45f5ebcd30441960",
-        "order": 5,
+        "order": 6,
         "width": 0,
         "height": 0,
         "min": "-4000",
@@ -7594,7 +7644,7 @@
         "payload": "true",
         "payloadType": "bool",
         "x": 90,
-        "y": 640,
+        "y": 700,
         "wires": [
             []
         ]
@@ -7617,7 +7667,7 @@
         "payload": "false",
         "payloadType": "bool",
         "x": 90,
-        "y": 680,
+        "y": 740,
         "wires": [
             []
         ]
@@ -8539,7 +8589,8 @@
         "wires": [
             [
                 "995a33bbd23af197",
-                "3f0771a356d89604"
+                "3f0771a356d89604",
+                "225629ceca9f11ab"
             ]
         ]
     },
@@ -8556,7 +8607,8 @@
         "wires": [
             [
                 "907cb996001733da",
-                "60b95deba4548ef3"
+                "60b95deba4548ef3",
+                "8b4eea0edb055b1f"
             ]
         ]
     },
@@ -8567,7 +8619,7 @@
         "group": "45f5ebcd30441960",
         "name": "",
         "label": "",
-        "order": 0,
+        "order": 1,
         "width": 0,
         "height": 0,
         "maxrows": "10",
@@ -8599,8 +8651,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1220,
-        "y": 420,
+        "x": 540,
+        "y": 660,
         "wires": []
     },
     {
@@ -8762,6 +8814,302 @@
             [
                 "c1534d3296bfab41"
             ]
+        ]
+    },
+    {
+        "id": "76089f8215067ea4",
+        "type": "ui-led",
+        "z": "3e956768f5245111",
+        "name": "led",
+        "group": "6003beaf3e655f88",
+        "order": 7,
+        "width": 1,
+        "height": "1",
+        "label": "CCY",
+        "labelPlacement": "left",
+        "labelAlignment": "flex-end",
+        "states": [
+            {
+                "value": "false",
+                "valueType": "bool",
+                "color": "#ffffff"
+            },
+            {
+                "value": "ouv",
+                "valueType": "str",
+                "color": "#ff7f00"
+            },
+            {
+                "value": "fer",
+                "valueType": "str",
+                "color": "#0432ff"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showBorder": false,
+        "showGlow": false,
+        "x": 250,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "8b4eea0edb055b1f",
+        "type": "function",
+        "z": "3e956768f5245111",
+        "name": "sens",
+        "func": "if (msg.payload === true) {\n    if (msg.sens === \"ouv\") {\n        msg.payload = \"ouv\";\n        return msg;\n    }\n    else if (msg.sens === \"fer\"){\n    if (msg.sens === \"fer\") {\n        msg.payload = \"fer\";\n        return msg;\n        }\n    }\n    else return;\n}\nelse if (msg.payload === false) return msg;\nreturn;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "76089f8215067ea4",
+                "d6bdab4a680210c6"
+            ]
+        ]
+    },
+    {
+        "id": "a6c3f4bee39202f1",
+        "type": "ui-led",
+        "z": "3e956768f5245111",
+        "name": "led",
+        "group": "6003beaf3e655f88",
+        "order": 8,
+        "width": 1,
+        "height": "1",
+        "label": "CLY",
+        "labelPlacement": "left",
+        "labelAlignment": "flex-end",
+        "states": [
+            {
+                "value": "false",
+                "valueType": "bool",
+                "color": "#ffffff"
+            },
+            {
+                "value": "ouv",
+                "valueType": "str",
+                "color": "#ff7f00"
+            },
+            {
+                "value": "fer",
+                "valueType": "str",
+                "color": "#0432ff"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showBorder": false,
+        "showGlow": false,
+        "x": 270,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "225629ceca9f11ab",
+        "type": "function",
+        "z": "3e956768f5245111",
+        "name": "sens",
+        "func": "if (msg.payload === true) {\n    if (msg.sens === \"ouv\") {\n        msg.payload = \"ouv\";\n        return msg;\n    }\n    else if (msg.sens === \"fer\"){\n    if (msg.sens === \"fer\") {\n        msg.payload = \"fer\";\n        return msg;\n        }\n    }\n    else return;\n}\nelse if (msg.payload === false) return msg;\nreturn;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 150,
+        "y": 600,
+        "wires": [
+            [
+                "a6c3f4bee39202f1",
+                "4a5ce00b5bcc1524"
+            ]
+        ]
+    },
+    {
+        "id": "4a5ce00b5bcc1524",
+        "type": "ui-button-group",
+        "z": "3e956768f5245111",
+        "name": "Vanne Logement",
+        "group": "99f0023e00974b68",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "label": "Vanne Logement",
+        "className": "",
+        "rounded": true,
+        "useThemeColors": false,
+        "passthru": true,
+        "options": [
+            {
+                "label": "FER",
+                "icon": "",
+                "value": "fer",
+                "valueType": "str",
+                "color": "#0432ff"
+            },
+            {
+                "label": "STOP",
+                "icon": "",
+                "value": "false",
+                "valueType": "bool",
+                "color": "#ffffff"
+            },
+            {
+                "label": "OUV",
+                "icon": "",
+                "value": "ouv",
+                "valueType": "str",
+                "color": "#ffa200"
+            }
+        ],
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 310,
+        "y": 660,
+        "wires": [
+            [
+                "3a94dfcbfc658da3"
+            ]
+        ]
+    },
+    {
+        "id": "c461eb7e369247bd",
+        "type": "ui-button-group",
+        "z": "3e956768f5245111",
+        "name": "qqq",
+        "group": "99f0023e00974b68",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "label": "qqq",
+        "className": "",
+        "rounded": true,
+        "useThemeColors": false,
+        "passthru": true,
+        "options": [
+            {
+                "label": "on",
+                "icon": "",
+                "value": "aaa",
+                "valueType": "str",
+                "color": "#0432ff"
+            },
+            {
+                "label": "STOP",
+                "icon": "",
+                "value": "false",
+                "valueType": "bool",
+                "color": "#ffffff"
+            }
+        ],
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1110,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "abb514233cf67bd1",
+        "type": "inject",
+        "z": "3e956768f5245111",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "aaa",
+        "payloadType": "str",
+        "x": 930,
+        "y": 200,
+        "wires": [
+            [
+                "c461eb7e369247bd"
+            ]
+        ]
+    },
+    {
+        "id": "829a639a19ca663c",
+        "type": "inject",
+        "z": "3e956768f5245111",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 930,
+        "y": 238,
+        "wires": [
+            [
+                "c461eb7e369247bd"
+            ]
+        ]
+    },
+    {
+        "id": "d6bdab4a680210c6",
+        "type": "ui-button-group",
+        "z": "3e956768f5245111",
+        "name": "Vanne Chaudière",
+        "group": "99f0023e00974b68",
+        "order": 2,
+        "width": "3",
+        "height": 1,
+        "label": "Vanne Chaudière",
+        "className": "",
+        "rounded": true,
+        "useThemeColors": false,
+        "passthru": true,
+        "options": [
+            {
+                "label": "FER",
+                "icon": "",
+                "value": "fer",
+                "valueType": "str",
+                "color": "#0432ff"
+            },
+            {
+                "label": "STOP",
+                "icon": "",
+                "value": "false",
+                "valueType": "bool",
+                "color": "#ffffff"
+            },
+            {
+                "label": "OUV",
+                "icon": "",
+                "value": "ouv",
+                "valueType": "str",
+                "color": "#ffa200"
+            }
+        ],
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 290,
+        "y": 320,
+        "wires": [
+            []
         ]
     },
     {
