@@ -507,9 +507,9 @@
         "type": "ui-group",
         "name": "Environnement",
         "page": "c39df7bfefa4dedc",
-        "width": "6",
+        "width": "12",
         "height": "1",
-        "order": 3,
+        "order": 1,
         "showTitle": true,
         "className": "",
         "visible": "true",
@@ -1249,11 +1249,11 @@
     {
         "id": "6003beaf3e655f88",
         "type": "ui-group",
-        "name": "Chauffage",
+        "name": "Sondes chauffage",
         "page": "c39df7bfefa4dedc",
-        "width": 6,
+        "width": 12,
         "height": 1,
-        "order": 1,
+        "order": 3,
         "showTitle": true,
         "className": "",
         "visible": "true",
@@ -1265,9 +1265,9 @@
         "type": "ui-group",
         "name": "Accumulateur",
         "page": "c39df7bfefa4dedc",
-        "width": 6,
+        "width": "12",
         "height": 1,
-        "order": 2,
+        "order": 4,
         "showTitle": true,
         "className": "",
         "visible": "true",
@@ -1346,9 +1346,9 @@
         "type": "ui-group",
         "name": "Solaire",
         "page": "c39df7bfefa4dedc",
-        "width": 6,
+        "width": "12",
         "height": 1,
-        "order": 4,
+        "order": 2,
         "showTitle": true,
         "className": "",
         "visible": "true",
@@ -1453,6 +1453,81 @@
         "groupType": "default"
     },
     {
+        "id": "6d1528b647168ed7",
+        "type": "ui-page",
+        "name": "Page 5",
+        "ui": "1eefafb17ac9eb3a",
+        "path": "/page5",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "59ba092d0a2ecbbe",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "order": 6,
+        "className": "",
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "95506f33052e25ed",
+        "type": "ui-group",
+        "name": "Control",
+        "page": "c39df7bfefa4dedc",
+        "width": 12,
+        "height": 1,
+        "order": 5,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "31f31df1f44e0ddb",
+        "type": "ui-spacer",
+        "group": "c842328fcbb96582",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 5,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "8a130ec69c98b616",
+        "type": "ui-group",
+        "name": "Chaudière",
+        "page": "c39df7bfefa4dedc",
+        "width": "12",
+        "height": 1,
+        "order": 6,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
         "id": "fbe427445467dcba",
         "type": "inject",
         "z": "b4a9d9fc0fb382cd",
@@ -1470,7 +1545,7 @@
         "payload": "true",
         "payloadType": "bool",
         "x": 110,
-        "y": 720,
+        "y": 740,
         "wires": [
             [
                 "4ee897f8cff0877c"
@@ -1495,7 +1570,7 @@
         "payload": "false",
         "payloadType": "bool",
         "x": 110,
-        "y": 760,
+        "y": 780,
         "wires": [
             [
                 "4ee897f8cff0877c"
@@ -1516,7 +1591,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 340,
-        "y": 1120,
+        "y": 1280,
         "wires": []
     },
     {
@@ -1542,7 +1617,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 520,
-        "y": 1060,
+        "y": 1220,
         "wires": []
     },
     {
@@ -1642,82 +1717,6 @@
         ]
     },
     {
-        "id": "b6cadc40055a8bad",
-        "type": "mqtt out",
-        "z": "b4a9d9fc0fb382cd",
-        "name": "",
-        "topic": "RPC/test",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "ee5cd5699662a4d3",
-        "x": 1320,
-        "y": 720,
-        "wires": []
-    },
-    {
-        "id": "97bd2519543687b1",
-        "type": "inject",
-        "z": "b4a9d9fc0fb382cd",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "10",
-        "payloadType": "num",
-        "x": 1150,
-        "y": 720,
-        "wires": [
-            [
-                "b6cadc40055a8bad"
-            ]
-        ]
-    },
-    {
-        "id": "3aefa5ebd983ce52",
-        "type": "inject",
-        "z": "b4a9d9fc0fb382cd",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "2",
-        "payloadType": "num",
-        "x": 1150,
-        "y": 760,
-        "wires": [
-            [
-                "b6cadc40055a8bad"
-            ]
-        ]
-    },
-    {
         "id": "10a120c66868afc0",
         "type": "ui_statetrail",
         "z": "b4a9d9fc0fb382cd",
@@ -1749,8 +1748,8 @@
         "legend": "1",
         "combine": false,
         "blanklabel": "",
-        "x": 510,
-        "y": 100,
+        "x": 610,
+        "y": 40,
         "wires": [
             []
         ]
@@ -1787,7 +1786,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 370,
+        "x": 470,
         "y": 140,
         "wires": [
             [
@@ -1930,7 +1929,7 @@
         "font": "",
         "fontSize": "",
         "color": "#000000",
-        "x": 540,
+        "x": 640,
         "y": 140,
         "wires": []
     },
@@ -1982,8 +1981,8 @@
         "shape": "circle",
         "showGlow": false,
         "name": "CCT led",
-        "x": 360,
-        "y": 100,
+        "x": 460,
+        "y": 40,
         "wires": []
     },
     {
@@ -2142,7 +2141,7 @@
         "state": "PULLUP",
         "arduino": "cfce575c6711bc96",
         "x": 100,
-        "y": 940,
+        "y": 1100,
         "wires": [
             [
                 "927eedc6f81757a2",
@@ -2160,7 +2159,7 @@
         "state": "PULLUP",
         "arduino": "cfce575c6711bc96",
         "x": 90,
-        "y": 1000,
+        "y": 1160,
         "wires": [
             [
                 "927eedc6f81757a2",
@@ -2219,7 +2218,7 @@
         "z": "b4a9d9fc0fb382cd",
         "time": "25",
         "name": "25ms",
-        "x": 130,
+        "x": 230,
         "y": 160,
         "wires": [
             [
@@ -2228,7 +2227,8 @@
                 "10a120c66868afc0",
                 "927eedc6f81757a2",
                 "e6dae370b83bf113",
-                "5b401f4ad2518bae"
+                "5b401f4ad2518bae",
+                "1575baca9ed33bec"
             ]
         ]
     },
@@ -2300,7 +2300,7 @@
         "attributes": [],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 450,
+        "x": 550,
         "y": 180,
         "wires": [
             []
@@ -2372,7 +2372,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 320,
+        "x": 420,
         "y": 180,
         "wires": [
             [
@@ -2433,7 +2433,7 @@
         "finalize": "",
         "libs": [],
         "x": 340,
-        "y": 1060,
+        "y": 1220,
         "wires": [
             [
                 "5cfb9a37ff23091d"
@@ -2477,7 +2477,7 @@
         "pin": "2",
         "state": "PULLUP",
         "arduino": "cfce575c6711bc96",
-        "x": 100,
+        "x": 200,
         "y": 100,
         "wires": [
             [
@@ -2538,7 +2538,7 @@
         "links": [
             "e0ee3684f06ec9bc"
         ],
-        "x": 465,
+        "x": 695,
         "y": 860,
         "wires": []
     },
@@ -2546,12 +2546,14 @@
         "id": "4ee897f8cff0877c",
         "type": "change",
         "z": "b4a9d9fc0fb382cd",
-        "name": "ouv",
+        "name": "ouv/false",
         "rules": [
             {
-                "t": "set",
-                "p": "sens",
+                "t": "change",
+                "p": "payload",
                 "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
                 "to": "ouv",
                 "tot": "str"
             }
@@ -2561,12 +2563,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 330,
+        "x": 340,
         "y": 820,
         "wires": [
             [
-                "ee7b9c64ee9013b0",
-                "723972f7b591f33e"
+                "723972f7b591f33e",
+                "9667b76d27477a1c"
             ]
         ]
     },
@@ -2574,12 +2576,14 @@
         "id": "2f0779db3cf530bf",
         "type": "change",
         "z": "b4a9d9fc0fb382cd",
-        "name": "fer",
+        "name": "fer/false",
         "rules": [
             {
-                "t": "set",
-                "p": "sens",
+                "t": "change",
+                "p": "payload",
                 "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
                 "to": "fer",
                 "tot": "str"
             }
@@ -2589,12 +2593,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 330,
+        "x": 340,
         "y": 880,
         "wires": [
             [
-                "ee7b9c64ee9013b0",
-                "723972f7b591f33e"
+                "723972f7b591f33e",
+                "9667b76d27477a1c"
             ]
         ]
     },
@@ -2607,20 +2611,22 @@
         "links": [
             "7642def301e445a8"
         ],
-        "x": 465,
-        "y": 980,
+        "x": 695,
+        "y": 1140,
         "wires": []
     },
     {
         "id": "d4d5a7ab157f0c42",
         "type": "change",
         "z": "b4a9d9fc0fb382cd",
-        "name": "ouv",
+        "name": "ouv/false",
         "rules": [
             {
-                "t": "set",
-                "p": "sens",
+                "t": "change",
+                "p": "payload",
                 "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
                 "to": "ouv",
                 "tot": "str"
             }
@@ -2630,11 +2636,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 330,
-        "y": 940,
+        "x": 340,
+        "y": 1100,
         "wires": [
             [
-                "3de172f738637c42"
+                "66815e29767173dc"
             ]
         ]
     },
@@ -2642,12 +2648,14 @@
         "id": "77c875e316eb4751",
         "type": "change",
         "z": "b4a9d9fc0fb382cd",
-        "name": "fer",
+        "name": "fer/false",
         "rules": [
             {
-                "t": "set",
-                "p": "sens",
+                "t": "change",
+                "p": "payload",
                 "pt": "msg",
+                "from": "true",
+                "fromt": "bool",
                 "to": "fer",
                 "tot": "str"
             }
@@ -2657,11 +2665,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 330,
-        "y": 1000,
+        "x": 340,
+        "y": 1160,
         "wires": [
             [
-                "3de172f738637c42"
+                "66815e29767173dc"
             ]
         ]
     },
@@ -2682,8 +2690,8 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 90,
-        "y": 1100,
+        "x": 110,
+        "y": 940,
         "wires": [
             [
                 "2f0779db3cf530bf"
@@ -2707,8 +2715,8 @@
         "topic": "",
         "payload": "false",
         "payloadType": "bool",
-        "x": 90,
-        "y": 1140,
+        "x": 110,
+        "y": 980,
         "wires": [
             [
                 "2f0779db3cf530bf"
@@ -2728,9 +2736,219 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 540,
-        "y": 800,
+        "x": 560,
+        "y": 940,
         "wires": []
+    },
+    {
+        "id": "9667b76d27477a1c",
+        "type": "ui-button-group",
+        "z": "b4a9d9fc0fb382cd",
+        "name": "CCY",
+        "group": "95506f33052e25ed",
+        "order": 2,
+        "width": 2,
+        "height": "2",
+        "label": "Vanne chaudière",
+        "className": "",
+        "rounded": true,
+        "useThemeColors": false,
+        "passthru": true,
+        "options": [
+            {
+                "label": "FER",
+                "icon": "",
+                "value": "fer",
+                "valueType": "str",
+                "color": "#0432ff"
+            },
+            {
+                "label": "CCY",
+                "icon": "",
+                "value": "false",
+                "valueType": "bool",
+                "color": "#ffffff"
+            },
+            {
+                "label": "OUV",
+                "icon": "",
+                "value": "ouv",
+                "valueType": "str",
+                "color": "#ffa200"
+            }
+        ],
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 550,
+        "y": 860,
+        "wires": [
+            [
+                "ee7b9c64ee9013b0",
+                "7487a6fd3ff29a76"
+            ]
+        ]
+    },
+    {
+        "id": "7487a6fd3ff29a76",
+        "type": "debug",
+        "z": "b4a9d9fc0fb382cd",
+        "name": "debug 8",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "66815e29767173dc",
+        "type": "ui-button-group",
+        "z": "b4a9d9fc0fb382cd",
+        "name": "CLY",
+        "group": "95506f33052e25ed",
+        "order": 4,
+        "width": 2,
+        "height": "2",
+        "label": "Vanne logement",
+        "className": "",
+        "rounded": true,
+        "useThemeColors": false,
+        "passthru": true,
+        "options": [
+            {
+                "label": "FER",
+                "icon": "",
+                "value": "fer",
+                "valueType": "str",
+                "color": "#0432ff"
+            },
+            {
+                "label": "CLY",
+                "icon": "",
+                "value": "false",
+                "valueType": "bool",
+                "color": "#ffffff"
+            },
+            {
+                "label": "OUV",
+                "icon": "",
+                "value": "ouv",
+                "valueType": "str",
+                "color": "#ffa200"
+            }
+        ],
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 550,
+        "y": 1140,
+        "wires": [
+            [
+                "3de172f738637c42"
+            ]
+        ]
+    },
+    {
+        "id": "1575baca9ed33bec",
+        "type": "ui-gauge",
+        "z": "b4a9d9fc0fb382cd",
+        "name": "CCT state",
+        "group": "8a130ec69c98b616",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "2",
+        "height": "1",
+        "gtype": "gauge-tile",
+        "gstyle": "needle",
+        "title": "CCT",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "1",
+                "color": "#c5c5c5",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "1",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 460,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aabf0ff61a2d20c1",
+        "type": "inject",
+        "z": "b4a9d9fc0fb382cd",
+        "name": "1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 70,
+        "y": 140,
+        "wires": [
+            [
+                "030ce82e5bb8f621"
+            ]
+        ]
+    },
+    {
+        "id": "280ac0f7c1a7e171",
+        "type": "inject",
+        "z": "b4a9d9fc0fb382cd",
+        "name": "0",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 70,
+        "y": 180,
+        "wires": [
+            [
+                "030ce82e5bb8f621"
+            ]
+        ]
     },
     {
         "id": "8cae6036f22da9f4",
@@ -2970,13 +3188,8 @@
         "id": "ba9c6f977ec31327",
         "type": "inject",
         "z": "bad0d5e8ce8cf0c6",
-        "name": "open",
+        "name": "ouv",
         "props": [
-            {
-                "p": "sens",
-                "v": "ouv",
-                "vt": "str"
-            },
             {
                 "p": "payload"
             }
@@ -2986,8 +3199,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
+        "payload": "ouv",
+        "payloadType": "str",
         "x": 130,
         "y": 600,
         "wires": [
@@ -3001,13 +3214,8 @@
         "id": "0bd1ac7d72ebab82",
         "type": "inject",
         "z": "bad0d5e8ce8cf0c6",
-        "name": "close",
+        "name": "fer",
         "props": [
-            {
-                "p": "sens",
-                "v": "fer",
-                "vt": "str"
-            },
             {
                 "p": "payload"
             }
@@ -3017,8 +3225,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
+        "payload": "fer",
+        "payloadType": "str",
         "x": 130,
         "y": 680,
         "wires": [
@@ -3395,8 +3603,8 @@
         "z": "bad0d5e8ce8cf0c6",
         "name": "CLP (pompe logement)",
         "label": "Pompe Logement (CLP)",
-        "group": "6003beaf3e655f88",
-        "order": 1,
+        "group": "95506f33052e25ed",
+        "order": 9,
         "width": "2",
         "height": "1",
         "passthru": true,
@@ -3429,8 +3637,8 @@
         "z": "bad0d5e8ce8cf0c6",
         "name": "CCP(pompe chaudière)",
         "label": "Pompe Chaudière (CCL)",
-        "group": "6003beaf3e655f88",
-        "order": 2,
+        "group": "95506f33052e25ed",
+        "order": 7,
         "width": 2,
         "height": "1",
         "passthru": true,
@@ -3506,8 +3714,8 @@
         "name": "CC1",
         "label": "Corps de chauffe 1 (CC1)",
         "group": "51713a7681769857",
-        "order": 1,
-        "width": "2",
+        "order": 6,
+        "width": "3",
         "height": "1",
         "passthru": true,
         "decouple": false,
@@ -3540,8 +3748,8 @@
         "name": "CC2",
         "label": "Corps de chauffe 2 (CC2)",
         "group": "51713a7681769857",
-        "order": 2,
-        "width": "2",
+        "order": 7,
+        "width": "3",
         "height": "1",
         "passthru": true,
         "decouple": false,
@@ -3574,8 +3782,8 @@
         "name": "CC3",
         "label": "Corps de chauffe 3 (CC3)",
         "group": "51713a7681769857",
-        "order": 3,
-        "width": "2",
+        "order": 8,
+        "width": "3",
         "height": "1",
         "passthru": true,
         "decouple": false,
@@ -3607,7 +3815,7 @@
         "z": "bad0d5e8ce8cf0c6",
         "group": "45f5ebcd30441960",
         "name": "",
-        "order": 3,
+        "order": 2,
         "width": 0,
         "height": 0,
         "label": "state timeline",
@@ -3669,7 +3877,7 @@
         "id": "36fe08c6c7f829af",
         "type": "inject",
         "z": "bad0d5e8ce8cf0c6",
-        "name": "stop",
+        "name": "false",
         "props": [
             {
                 "p": "payload"
@@ -3718,7 +3926,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
+        "x": 1270,
         "y": 600,
         "wires": [
             [
@@ -3742,7 +3950,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1360,
+        "x": 1440,
         "y": 580,
         "wires": []
     },
@@ -3759,7 +3967,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1360,
+        "x": 1440,
         "y": 620,
         "wires": []
     },
@@ -3771,7 +3979,7 @@
         "links": [
             "5c50629c516aa946"
         ],
-        "x": 945,
+        "x": 1025,
         "y": 540,
         "wires": [
             [
@@ -3787,7 +3995,7 @@
         "valueToToggle": "false",
         "payloadPropName": "payload",
         "translatorConfig": "",
-        "x": 990,
+        "x": 1070,
         "y": 600,
         "wires": [
             [
@@ -3816,7 +4024,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 850,
+        "x": 930,
         "y": 600,
         "wires": [
             [
@@ -3841,7 +4049,7 @@
         "topic": "",
         "payload": "true",
         "payloadType": "bool",
-        "x": 990,
+        "x": 1070,
         "y": 660,
         "wires": [
             [
@@ -3866,7 +4074,7 @@
         "topic": "",
         "payload": "false",
         "payloadType": "bool",
-        "x": 990,
+        "x": 1070,
         "y": 700,
         "wires": [
             [
@@ -3937,7 +4145,7 @@
         "type": "function",
         "z": "bad0d5e8ce8cf0c6",
         "name": "CCY",
-        "func": "// Initialisation des états de sorties (par défaut false)\nlet open = false;\nlet close = false;\n\nif (msg.sens === \"ouv\") {\n    // Si on ouvre, on ferme obligatoirement l'autre\n    open = msg.payload === true;\n    close = false;\n} else if (msg.sens === \"fer\") {\n    // Si on ferme, on ouvre obligatoirement l'autre\n    close = msg.payload === true;\n    open = false;\n} else {\n    // Optionnel : gérer les topics inconnus\n    if (msg.payload === false) {\n        open = false;\n        close = false;\n    }\n}\n\n// Préparation des messages pour chaque sortie\nreturn [\n    { payload: open },   // 1ère sortie : Ouvrir\n    { payload: close }   // 2ème sortie : Fermer\n];",
+        "func": "// Initialisation des états de sorties (par défaut false)\nlet open = false;\nlet close = false;\n\nif (msg.payload === \"ouv\") {\n    // Si on ouvre, on ferme obligatoirement l'autre\n    open = true;\n    close = false;\n} else if (msg.payload === \"fer\") {\n    // Si on ferme, on ouvre obligatoirement l'autre\n    close = true;\n    open = false;\n} else {\n    // Optionnel : gérer les topics inconnus\n    if (msg.payload === false) {\n        open = false;\n        close = false;\n    }\n}\n\n// Préparation des messages pour chaque sortie\nreturn [\n    { payload: open },   // 1ère sortie : Ouvrir\n    { payload: close }   // 2ème sortie : Fermer\n];",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -3960,7 +4168,7 @@
         "type": "function",
         "z": "bad0d5e8ce8cf0c6",
         "name": "CLY",
-        "func": "// Initialisation des états de sorties (par défaut false)\nlet open = false;\nlet close = false;\n\nif (msg.sens === \"ouv\") {\n    // Si on ouvre, on ferme obligatoirement l'autre\n    open = msg.payload === true;\n    close = false;\n} else if (msg.sens === \"fer\") {\n    // Si on ferme, on ouvre obligatoirement l'autre\n    close = msg.payload === true;\n    open = false;\n} else {\n    // Optionnel : gérer les topics inconnus\n    if (msg.payload === false) {\n        open = false;\n        close = false;\n    }\n}\n\n// Préparation des messages pour chaque sortie\nreturn [\n    { payload: open },   // 1ère sortie : Ouvrir\n    { payload: close }   // 2ème sortie : Fermer\n];",
+        "func": "// Initialisation des états de sorties (par défaut false)\nlet open = false;\nlet close = false;\n\nif (msg.payload === \"ouv\") {\n    // Si on ouvre, on ferme obligatoirement l'autre\n    open = true;\n    close = false;\n} else if (msg.payload === \"fer\") {\n    // Si on ferme, on ouvre obligatoirement l'autre\n    close = true;\n    open = false;\n} else {\n    // Optionnel : gérer les topics inconnus\n    if (msg.payload === false) {\n        open = false;\n        close = false;\n    }\n}\n\n// Préparation des messages pour chaque sortie\nreturn [\n    { payload: open },   // 1ère sortie : Ouvrir\n    { payload: close }   // 2ème sortie : Fermer\n];",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -3982,7 +4190,7 @@
         "id": "da2299bc9bf7e886",
         "type": "link out",
         "z": "bad0d5e8ce8cf0c6",
-        "name": "CCY (DO-Vannes)",
+        "name": "CCY (DO > Vannes)",
         "mode": "link",
         "links": [
             "585b3fd626f7518c"
@@ -3995,7 +4203,7 @@
         "id": "e0ee3684f06ec9bc",
         "type": "link in",
         "z": "bad0d5e8ce8cf0c6",
-        "name": "CCY (DI-DO)",
+        "name": "CCY (DI > DO)",
         "links": [
             "ee7b9c64ee9013b0"
         ],
@@ -4012,7 +4220,7 @@
         "id": "7642def301e445a8",
         "type": "link in",
         "z": "bad0d5e8ce8cf0c6",
-        "name": "CLY (DI-DO)",
+        "name": "CLY (DI > DO)",
         "links": [
             "3de172f738637c42"
         ],
@@ -4029,13 +4237,8 @@
         "id": "2562b5c480774b4e",
         "type": "inject",
         "z": "bad0d5e8ce8cf0c6",
-        "name": "open",
+        "name": "ouv",
         "props": [
-            {
-                "p": "sens",
-                "v": "ouv",
-                "vt": "str"
-            },
             {
                 "p": "payload"
             }
@@ -4045,8 +4248,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
+        "payload": "ouv",
+        "payloadType": "str",
         "x": 130,
         "y": 740,
         "wires": [
@@ -4060,13 +4263,8 @@
         "id": "7fcbda8f3a84145e",
         "type": "inject",
         "z": "bad0d5e8ce8cf0c6",
-        "name": "close",
+        "name": "fer",
         "props": [
-            {
-                "p": "sens",
-                "v": "fer",
-                "vt": "str"
-            },
             {
                 "p": "payload"
             }
@@ -4076,8 +4274,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "true",
-        "payloadType": "bool",
+        "payload": "fer",
+        "payloadType": "str",
         "x": 130,
         "y": 820,
         "wires": [
@@ -4117,7 +4315,7 @@
         "id": "19ea1bd7533f7474",
         "type": "link out",
         "z": "bad0d5e8ce8cf0c6",
-        "name": "CLY (DO-Vannes)",
+        "name": "CLY (DO > Vannes)",
         "mode": "link",
         "links": [
             "7c5d67fed9a4b7cb"
@@ -4151,7 +4349,7 @@
         "id": "4f07dc0556d4ce20",
         "type": "link in",
         "z": "bad0d5e8ce8cf0c6",
-        "name": "alim pellets",
+        "name": "alim pellets (DI > DO)",
         "links": [
             "5c50629c516aa946"
         ],
@@ -4387,10 +4585,8 @@
         "wires": [
             [
                 "8201c4117853fcbe",
-                "8b8b9f06bfe08cb5",
-                "0b9e646d60113a3b",
-                "183ddefd7c791063",
-                "2197a8fbe488c928"
+                "2197a8fbe488c928",
+                "5db8f4ed8811bf6e"
             ]
         ]
     },
@@ -4668,138 +4864,6 @@
         ]
     },
     {
-        "id": "6b49864fafa74277",
-        "type": "ui_chart",
-        "z": "e93be114ec7eee96",
-        "name": "",
-        "group": "1ac41474508e512e",
-        "order": 10,
-        "width": "6",
-        "height": "6",
-        "label": "",
-        "chartType": "line",
-        "legend": "true",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "0",
-        "ymax": "80",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "86400",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#00f900",
-            "#00fcff",
-            "#ff2600",
-            "#ff9200",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 430,
-        "y": 100,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "8b8b9f06bfe08cb5",
-        "type": "ui_chart",
-        "z": "e93be114ec7eee96",
-        "name": "graph temp",
-        "group": "1ac41474508e512e",
-        "order": 5,
-        "width": "6",
-        "height": "6",
-        "label": "",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "-20",
-        "ymax": "40",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "86400",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 450,
-        "y": 860,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "cd89f1a9eb9d9953",
-        "type": "ui_chart",
-        "z": "e93be114ec7eee96",
-        "name": "accu",
-        "group": "3e7a3cf8909ee831",
-        "order": 5,
-        "width": "6",
-        "height": "6",
-        "label": "",
-        "chartType": "line",
-        "legend": "true",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "0",
-        "ymax": "80",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "86400",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#00f900",
-            "#00fcff",
-            "#ff2600",
-            "#ff9200",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 430,
-        "y": 620,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "96e885e3a88e165b",
         "type": "ui_ui_control",
         "z": "e93be114ec7eee96",
@@ -4810,426 +4874,6 @@
         "wires": [
             []
         ]
-    },
-    {
-        "id": "aa1b49a33da87379",
-        "type": "ui_level",
-        "z": "e93be114ec7eee96",
-        "group": "1ac41474508e512e",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "name": "TLD",
-        "label": "TLD Départ vers Logement",
-        "colorHi": "#e60000",
-        "colorWarn": "#ff9900",
-        "colorNormal": "#00b33c",
-        "colorOff": "#595959",
-        "min": 0,
-        "max": "40",
-        "segWarn": "",
-        "segHigh": "",
-        "unit": "°C",
-        "layout": "sh",
-        "channelA": "TLO",
-        "channelB": "TLI",
-        "decimals": "1",
-        "animations": "soft",
-        "shape": 2,
-        "colorschema": "fixed",
-        "textoptions": "default",
-        "colorText": "#eeeeee",
-        "fontLabel": "",
-        "fontValue": "",
-        "fontSmall": "",
-        "colorFromTheme": true,
-        "textAnimations": false,
-        "hideValue": false,
-        "tickmode": "off",
-        "peakmode": false,
-        "property": "payload",
-        "peaktime": 3000,
-        "x": 430,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "f652fb614dabb7a8",
-        "type": "ui_level",
-        "z": "e93be114ec7eee96",
-        "group": "1ac41474508e512e",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "name": "TCD",
-        "label": "TCD Départ Chaudière",
-        "colorHi": "#e60000",
-        "colorWarn": "#ff9900",
-        "colorNormal": "#00b33c",
-        "colorOff": "#595959",
-        "min": 0,
-        "max": "80",
-        "segWarn": "",
-        "segHigh": "",
-        "unit": "°C",
-        "layout": "sh",
-        "channelA": "TLO",
-        "channelB": "TLI",
-        "decimals": "1",
-        "animations": "soft",
-        "shape": 2,
-        "colorschema": "fixed",
-        "textoptions": "default",
-        "colorText": "#eeeeee",
-        "fontLabel": "",
-        "fontValue": "",
-        "fontSmall": "",
-        "colorFromTheme": true,
-        "textAnimations": false,
-        "hideValue": false,
-        "tickmode": "off",
-        "peakmode": false,
-        "property": "payload",
-        "peaktime": 3000,
-        "x": 430,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "91cf0d8e7bd4fa6c",
-        "type": "ui_level",
-        "z": "e93be114ec7eee96",
-        "group": "1ac41474508e512e",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "name": "TCR",
-        "label": "TCR Retour vers Chaudière",
-        "colorHi": "#e60000",
-        "colorWarn": "#ff9900",
-        "colorNormal": "#00b33c",
-        "colorOff": "#595959",
-        "min": 0,
-        "max": "80",
-        "segWarn": "",
-        "segHigh": "",
-        "unit": "°C",
-        "layout": "sh",
-        "channelA": "TLO",
-        "channelB": "TLI",
-        "decimals": "1",
-        "animations": "soft",
-        "shape": 2,
-        "colorschema": "fixed",
-        "textoptions": "default",
-        "colorText": "#eeeeee",
-        "fontLabel": "",
-        "fontValue": "",
-        "fontSmall": "",
-        "colorFromTheme": true,
-        "textAnimations": false,
-        "hideValue": false,
-        "tickmode": "off",
-        "peakmode": false,
-        "property": "payload",
-        "peaktime": 3000,
-        "x": 430,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "f6504622e611083b",
-        "type": "ui_level",
-        "z": "e93be114ec7eee96",
-        "group": "1ac41474508e512e",
-        "order": 9,
-        "width": 0,
-        "height": 0,
-        "name": "TLR",
-        "label": "TLR Retour de Logement",
-        "colorHi": "#e60000",
-        "colorWarn": "#ff9900",
-        "colorNormal": "#00b33c",
-        "colorOff": "#595959",
-        "min": 0,
-        "max": "40",
-        "segWarn": "",
-        "segHigh": "",
-        "unit": "°C",
-        "layout": "sh",
-        "channelA": "TLO",
-        "channelB": "TLI",
-        "decimals": "1",
-        "animations": "soft",
-        "shape": 2,
-        "colorschema": "fixed",
-        "textoptions": "default",
-        "colorText": "#eeeeee",
-        "fontLabel": "",
-        "fontValue": "",
-        "fontSmall": "",
-        "colorFromTheme": true,
-        "textAnimations": false,
-        "hideValue": false,
-        "tickmode": "off",
-        "peakmode": false,
-        "property": "payload",
-        "peaktime": 3000,
-        "x": 430,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "0b9e646d60113a3b",
-        "type": "ui_level",
-        "z": "e93be114ec7eee96",
-        "group": "1ac41474508e512e",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "Temp ext",
-        "label": "Température extérieure",
-        "colorHi": "#fefb00",
-        "colorWarn": "#00f900",
-        "colorNormal": "#0432ff",
-        "colorOff": "#595959",
-        "min": "-20",
-        "max": "40",
-        "segWarn": "20",
-        "segHigh": "30",
-        "unit": "°C",
-        "layout": "sh",
-        "channelA": "TLO",
-        "channelB": "TLI",
-        "decimals": "1",
-        "animations": "soft",
-        "shape": 2,
-        "colorschema": "fixed",
-        "textoptions": "default",
-        "colorText": "#eeeeee",
-        "fontLabel": "",
-        "fontValue": "",
-        "fontSmall": "",
-        "colorFromTheme": true,
-        "textAnimations": false,
-        "hideValue": false,
-        "tickmode": "off",
-        "peakmode": false,
-        "property": "payload",
-        "peaktime": 3000,
-        "x": 600,
-        "y": 820,
-        "wires": []
-    },
-    {
-        "id": "24ca51444c1a801a",
-        "type": "ui_level",
-        "z": "e93be114ec7eee96",
-        "group": "1ac41474508e512e",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "Temp int",
-        "label": "Température intérieure",
-        "colorHi": "#fefb00",
-        "colorWarn": "#00f900",
-        "colorNormal": "#0432ff",
-        "colorOff": "#595959",
-        "min": "10",
-        "max": "30",
-        "segWarn": "20",
-        "segHigh": "25",
-        "unit": "°C",
-        "layout": "sh",
-        "channelA": "TLO",
-        "channelB": "TLI",
-        "decimals": "1",
-        "animations": "soft",
-        "shape": 2,
-        "colorschema": "fixed",
-        "textoptions": "default",
-        "colorText": "#eeeeee",
-        "fontLabel": "",
-        "fontValue": "",
-        "fontSmall": "",
-        "colorFromTheme": true,
-        "textAnimations": false,
-        "hideValue": false,
-        "tickmode": "off",
-        "peakmode": false,
-        "property": "payload",
-        "peaktime": 3000,
-        "x": 600,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "6e56a29dce00f101",
-        "type": "ui_level",
-        "z": "e93be114ec7eee96",
-        "group": "3e7a3cf8909ee831",
-        "order": 1,
-        "width": "0",
-        "height": "0",
-        "name": "TAD",
-        "label": "TAD Départ Accu",
-        "colorHi": "#e60000",
-        "colorWarn": "#ff9900",
-        "colorNormal": "#00b33c",
-        "colorOff": "#595959",
-        "min": 0,
-        "max": 100,
-        "segWarn": "",
-        "segHigh": "",
-        "unit": "",
-        "layout": "sh",
-        "channelA": "",
-        "channelB": "",
-        "decimals": 0,
-        "animations": "soft",
-        "shape": 2,
-        "colorschema": "fixed",
-        "textoptions": "default",
-        "colorText": "#eeeeee",
-        "fontLabel": "",
-        "fontValue": "",
-        "fontSmall": "",
-        "colorFromTheme": true,
-        "textAnimations": false,
-        "hideValue": false,
-        "tickmode": "off",
-        "peakmode": false,
-        "property": "payload",
-        "peaktime": 3000,
-        "x": 430,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "17038fabb815aa8b",
-        "type": "ui_level",
-        "z": "e93be114ec7eee96",
-        "group": "3e7a3cf8909ee831",
-        "order": 2,
-        "width": "0",
-        "height": "0",
-        "name": "TAR",
-        "label": "TAR Retour vers Accu",
-        "colorHi": "#e60000",
-        "colorWarn": "#ff9900",
-        "colorNormal": "#00b33c",
-        "colorOff": "#595959",
-        "min": 0,
-        "max": 100,
-        "segWarn": "",
-        "segHigh": "",
-        "unit": "",
-        "layout": "sh",
-        "channelA": "",
-        "channelB": "",
-        "decimals": 0,
-        "animations": "soft",
-        "shape": 2,
-        "colorschema": "fixed",
-        "textoptions": "default",
-        "colorText": "#eeeeee",
-        "fontLabel": "",
-        "fontValue": "",
-        "fontSmall": "",
-        "colorFromTheme": true,
-        "textAnimations": false,
-        "hideValue": false,
-        "tickmode": "off",
-        "peakmode": false,
-        "property": "payload",
-        "peaktime": 3000,
-        "x": 430,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "52491bcae857eac2",
-        "type": "ui_level",
-        "z": "e93be114ec7eee96",
-        "group": "3e7a3cf8909ee831",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "name": "TA1",
-        "label": "TA1",
-        "colorHi": "#e60000",
-        "colorWarn": "#ff9900",
-        "colorNormal": "#00b33c",
-        "colorOff": "#595959",
-        "min": 0,
-        "max": 100,
-        "segWarn": "",
-        "segHigh": "",
-        "unit": "",
-        "layout": "sh",
-        "channelA": "",
-        "channelB": "",
-        "decimals": 0,
-        "animations": "soft",
-        "shape": 2,
-        "colorschema": "fixed",
-        "textoptions": "default",
-        "colorText": "#eeeeee",
-        "fontLabel": "",
-        "fontValue": "",
-        "fontSmall": "",
-        "colorFromTheme": true,
-        "textAnimations": false,
-        "hideValue": false,
-        "tickmode": "off",
-        "peakmode": false,
-        "property": "payload",
-        "peaktime": 3000,
-        "x": 430,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "ec8be8564c097556",
-        "type": "ui_level",
-        "z": "e93be114ec7eee96",
-        "group": "3e7a3cf8909ee831",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "name": "TA2",
-        "label": "TA2",
-        "colorHi": "#e60000",
-        "colorWarn": "#ff9900",
-        "colorNormal": "#00b33c",
-        "colorOff": "#595959",
-        "min": 0,
-        "max": 100,
-        "segWarn": "",
-        "segHigh": "",
-        "unit": "",
-        "layout": "sh",
-        "channelA": "",
-        "channelB": "",
-        "decimals": 0,
-        "animations": "soft",
-        "shape": 2,
-        "colorschema": "fixed",
-        "textoptions": "default",
-        "colorText": "#eeeeee",
-        "fontLabel": "",
-        "fontValue": "",
-        "fontSmall": "",
-        "colorFromTheme": true,
-        "textAnimations": false,
-        "hideValue": false,
-        "tickmode": "off",
-        "peakmode": false,
-        "property": "payload",
-        "peaktime": 3000,
-        "x": 430,
-        "y": 560,
-        "wires": []
     },
     {
         "id": "e60ea3888a57be8b",
@@ -5287,11 +4931,9 @@
         "wires": [
             [
                 "59a93f340bbba712",
-                "aa1b49a33da87379",
-                "6b49864fafa74277",
                 "a091f4683b5c3e90",
                 "8757ea0219934ca0",
-                "1d2fcb3aa9803527"
+                "1a1f6341c1211867"
             ]
         ]
     },
@@ -5308,11 +4950,8 @@
         "y": 260,
         "wires": [
             [
-                "f652fb614dabb7a8",
-                "6b49864fafa74277",
                 "a091f4683b5c3e90",
-                "16722ba2a4781bdd",
-                "1be052351ee6fa2f"
+                "085da48c8ee8f279"
             ]
         ]
     },
@@ -5329,11 +4968,8 @@
         "y": 320,
         "wires": [
             [
-                "91cf0d8e7bd4fa6c",
-                "6b49864fafa74277",
                 "a091f4683b5c3e90",
-                "3d0bd7b8646342b1",
-                "75dac0e35bc3daba"
+                "d809af38f3c069b1"
             ]
         ]
     },
@@ -5350,12 +4986,9 @@
         "y": 380,
         "wires": [
             [
-                "6e56a29dce00f101",
                 "59a93f340bbba712",
-                "cd89f1a9eb9d9953",
-                "730cf87710f39e07",
-                "326625b2ba884847",
-                "813b082ae1f26a25"
+                "813b082ae1f26a25",
+                "36b5250ffa6e8d6b"
             ]
         ]
     },
@@ -5372,12 +5005,9 @@
         "y": 440,
         "wires": [
             [
-                "17038fabb815aa8b",
                 "59a93f340bbba712",
-                "cd89f1a9eb9d9953",
-                "11b404a1964950b3",
-                "08ebb80ccbf3d011",
-                "813b082ae1f26a25"
+                "813b082ae1f26a25",
+                "b0d57fbd99750799"
             ]
         ]
     },
@@ -5394,12 +5024,9 @@
         "y": 500,
         "wires": [
             [
-                "52491bcae857eac2",
                 "59a93f340bbba712",
-                "cd89f1a9eb9d9953",
-                "7e5b1fe8b239865b",
-                "2d89271b20cbe9e8",
-                "813b082ae1f26a25"
+                "813b082ae1f26a25",
+                "0d20b6d759fa8e48"
             ]
         ]
     },
@@ -5416,12 +5043,9 @@
         "y": 560,
         "wires": [
             [
-                "ec8be8564c097556",
                 "59a93f340bbba712",
-                "cd89f1a9eb9d9953",
-                "9bb086acdb48fca2",
-                "79ea8cb40121c6d6",
-                "813b082ae1f26a25"
+                "813b082ae1f26a25",
+                "2802b4263cc4c7ec"
             ]
         ]
     },
@@ -5457,11 +5081,8 @@
         "y": 200,
         "wires": [
             [
-                "f6504622e611083b",
-                "6b49864fafa74277",
                 "a091f4683b5c3e90",
-                "e41e487407c41b60",
-                "d2318810c0df82fe"
+                "b149a2dedc4fb182"
             ]
         ]
     },
@@ -5477,7 +5098,7 @@
         "attributes": [],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 870,
+        "x": 750,
         "y": 140,
         "wires": [
             []
@@ -5495,7 +5116,7 @@
         "attributes": [],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 870,
+        "x": 750,
         "y": 200,
         "wires": [
             []
@@ -5513,7 +5134,7 @@
         "attributes": [],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 870,
+        "x": 750,
         "y": 260,
         "wires": [
             []
@@ -5531,7 +5152,7 @@
         "attributes": [],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 870,
+        "x": 750,
         "y": 320,
         "wires": [
             []
@@ -5549,7 +5170,7 @@
         "attributes": [],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 870,
+        "x": 750,
         "y": 380,
         "wires": [
             []
@@ -5567,7 +5188,7 @@
         "attributes": [],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 870,
+        "x": 750,
         "y": 440,
         "wires": [
             []
@@ -5585,7 +5206,7 @@
         "attributes": [],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 870,
+        "x": 750,
         "y": 500,
         "wires": [
             []
@@ -5603,7 +5224,7 @@
         "attributes": [],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 870,
+        "x": 750,
         "y": 560,
         "wires": [
             []
@@ -5620,7 +5241,7 @@
         "exposeAsEntityConfig": "",
         "entities": {
             "entity": [
-                "sensor.mct_hl1t"
+                "sensor.capteur_temperature_et_humidite_temperature"
             ],
             "substring": [],
             "regex": []
@@ -5663,10 +5284,8 @@
         "y": 880,
         "wires": [
             [
-                "8b8b9f06bfe08cb5",
-                "24ca51444c1a801a",
-                "4c2a5c1c0b710617",
-                "7b8e308668652734"
+                "7b8e308668652734",
+                "69c88c7410f0e0fb"
             ]
         ]
     },
@@ -5724,53 +5343,10 @@
         "y": 940,
         "wires": [
             [
-                "53ea2f90b6fe601e",
-                "84ae481e1c45eade",
-                "7b8e308668652734"
+                "7b8e308668652734",
+                "8a40e95477570f7b"
             ]
         ]
-    },
-    {
-        "id": "53ea2f90b6fe601e",
-        "type": "ui_level",
-        "z": "e93be114ec7eee96",
-        "group": "1ac41474508e512e",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "Temp sol",
-        "label": "Température sol",
-        "colorHi": "#fefb00",
-        "colorWarn": "#00f900",
-        "colorNormal": "#0432ff",
-        "colorOff": "#595959",
-        "min": "10",
-        "max": "30",
-        "segWarn": "20",
-        "segHigh": "25",
-        "unit": "°C",
-        "layout": "sh",
-        "channelA": "TLO",
-        "channelB": "TLI",
-        "decimals": "1",
-        "animations": "soft",
-        "shape": 2,
-        "colorschema": "fixed",
-        "textoptions": "default",
-        "colorText": "#eeeeee",
-        "fontLabel": "",
-        "fontValue": "",
-        "fontSmall": "",
-        "colorFromTheme": true,
-        "textAnimations": false,
-        "hideValue": false,
-        "tickmode": "off",
-        "peakmode": false,
-        "property": "payload",
-        "peaktime": 3000,
-        "x": 600,
-        "y": 940,
-        "wires": []
     },
     {
         "id": "ee2dad5c5e664093",
@@ -5845,162 +5421,13 @@
         ]
     },
     {
-        "id": "183ddefd7c791063",
-        "type": "ui-gauge-linear",
-        "z": "e93be114ec7eee96",
-        "name": "T. Ext",
-        "group": "c842328fcbb96582",
-        "order": 1,
-        "width": "3",
-        "height": "1",
-        "min": "-20",
-        "max": "40",
-        "ticks": [
-            {
-                "value": "0",
-                "label": ""
-            },
-            {
-                "value": "20",
-                "label": ""
-            }
-        ],
-        "colors": [
-            {
-                "size": 100,
-                "color": "rgb(0, 227, 0)"
-            },
-            {
-                "size": 66,
-                "color": "rgb(4, 50, 255)"
-            },
-            {
-                "size": 33,
-                "color": "rgb(4, 50, 255)"
-            }
-        ],
-        "zeroCrossColors": [
-            "#ff4c16",
-            "#00e300"
-        ],
-        "mode": "default",
-        "bar": "solid",
-        "minLabel": "",
-        "maxLabel": "",
-        "label": "Tempérarure Extérieure",
-        "icon": "forest",
-        "unit": "°C",
-        "dim": 0.2,
-        "property": "payload",
-        "decimals": "1",
-        "zeros": true,
-        "myclass": "",
-        "x": 750,
-        "y": 820,
-        "wires": []
-    },
-    {
-        "id": "4c2a5c1c0b710617",
-        "type": "ui-gauge-linear",
-        "z": "e93be114ec7eee96",
-        "name": "T. Int",
-        "group": "c842328fcbb96582",
-        "order": 2,
-        "width": "3",
-        "height": "1",
-        "min": "0",
-        "max": "40",
-        "ticks": [
-            {
-                "value": "20",
-                "label": ""
-            }
-        ],
-        "colors": [
-            {
-                "size": 100,
-                "color": "rgb(0, 227, 0)"
-            },
-            {
-                "size": 50,
-                "color": "rgb(4, 50, 255)"
-            }
-        ],
-        "zeroCrossColors": [
-            "#ff4c16",
-            "#00e300"
-        ],
-        "mode": "default",
-        "bar": "solid",
-        "minLabel": "",
-        "maxLabel": "",
-        "label": "Tempérarure Intérieure",
-        "icon": "thermometer",
-        "unit": "°C",
-        "dim": 0.2,
-        "property": "payload",
-        "decimals": "1",
-        "zeros": true,
-        "myclass": "",
-        "x": 750,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "84ae481e1c45eade",
-        "type": "ui-gauge-linear",
-        "z": "e93be114ec7eee96",
-        "name": "T. Sol",
-        "group": "c842328fcbb96582",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "min": "0",
-        "max": "40",
-        "ticks": [
-            {
-                "value": "20",
-                "label": ""
-            }
-        ],
-        "colors": [
-            {
-                "size": 100,
-                "color": "rgb(0, 227, 0)"
-            },
-            {
-                "size": 50,
-                "color": "rgb(4, 50, 255)"
-            }
-        ],
-        "zeroCrossColors": [
-            "#ff4c16",
-            "#00e300"
-        ],
-        "mode": "default",
-        "bar": "solid",
-        "minLabel": "",
-        "maxLabel": "",
-        "label": "Tempérarure Sol",
-        "icon": "wall-sconce-flat-variant",
-        "unit": "°C",
-        "dim": 0.2,
-        "property": "payload",
-        "decimals": "1",
-        "zeros": true,
-        "myclass": "",
-        "x": 750,
-        "y": 940,
-        "wires": []
-    },
-    {
         "id": "a091f4683b5c3e90",
         "type": "ui-chart",
         "z": "e93be114ec7eee96",
         "group": "6003beaf3e655f88",
         "name": "Chauffage",
         "label": "",
-        "order": 9,
+        "order": 3,
         "chartType": "line",
         "category": "topic",
         "categoryType": "msg",
@@ -6009,7 +5436,7 @@
         "xAxisPropertyType": "timestamp",
         "xAxisType": "time",
         "xAxisFormat": "",
-        "xAxisFormatType": "HH:mm",
+        "xAxisFormatType": "{HH}:{mm}",
         "xmin": "",
         "xmax": "",
         "yAxisLabel": "Température [°C]",
@@ -6045,8 +5472,8 @@
             "#e5e5e5"
         ],
         "gridColorDefault": true,
-        "width": 6,
-        "height": "6",
+        "width": 8,
+        "height": "4",
         "className": "",
         "interpolation": "linear",
         "x": 630,
@@ -6061,7 +5488,7 @@
         "z": "e93be114ec7eee96",
         "group": "c842328fcbb96582",
         "name": "T. environnement",
-        "label": "chart",
+        "label": "",
         "order": 3,
         "chartType": "line",
         "category": "topic",
@@ -6071,7 +5498,7 @@
         "xAxisPropertyType": "timestamp",
         "xAxisType": "time",
         "xAxisFormat": "",
-        "xAxisFormatType": "HH:mm",
+        "xAxisFormatType": "{HH}:{mm}",
         "xmin": "",
         "xmax": "",
         "yAxisLabel": "Température [°C]",
@@ -6107,8 +5534,8 @@
             "#e5e5e5"
         ],
         "gridColorDefault": true,
-        "width": 6,
-        "height": "6",
+        "width": "8",
+        "height": "4",
         "className": "",
         "interpolation": "linear",
         "x": 430,
@@ -6156,7 +5583,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
+        "x": 610,
         "y": 140,
         "wires": [
             [
@@ -6177,7 +5604,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
+        "x": 610,
         "y": 200,
         "wires": [
             [
@@ -6198,7 +5625,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
+        "x": 610,
         "y": 260,
         "wires": [
             [
@@ -6219,7 +5646,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
+        "x": 610,
         "y": 320,
         "wires": [
             [
@@ -6240,7 +5667,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
+        "x": 610,
         "y": 380,
         "wires": [
             [
@@ -6261,7 +5688,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
+        "x": 610,
         "y": 440,
         "wires": [
             [
@@ -6282,7 +5709,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
+        "x": 610,
         "y": 500,
         "wires": [
             [
@@ -6303,7 +5730,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
+        "x": 610,
         "y": 560,
         "wires": [
             [
@@ -6313,388 +5740,13 @@
         "icon": "font-awesome/fa-filter"
     },
     {
-        "id": "1d2fcb3aa9803527",
-        "type": "ui-gauge-linear",
-        "z": "e93be114ec7eee96",
-        "name": "TLD",
-        "group": "6003beaf3e655f88",
-        "order": 3,
-        "width": "3",
-        "height": "1",
-        "min": "10",
-        "max": "60",
-        "ticks": [
-            {
-                "value": "20",
-                "label": ""
-            },
-            {
-                "value": "40",
-                "label": "40 max"
-            }
-        ],
-        "colors": [
-            {
-                "size": 100,
-                "color": "rgb(255, 76, 22)"
-            },
-            {
-                "size": 60,
-                "color": "rgb(0, 227, 0)"
-            },
-            {
-                "size": 20,
-                "color": "rgb(4, 50, 255)"
-            }
-        ],
-        "zeroCrossColors": [
-            "#ff4c16",
-            "#00e300"
-        ],
-        "mode": "fullBar",
-        "bar": "solid",
-        "minLabel": "",
-        "maxLabel": "",
-        "label": "Tempérarure Logement Départ",
-        "icon": "heating-coil",
-        "unit": "°C",
-        "dim": 0.2,
-        "property": "payload",
-        "decimals": "1",
-        "zeros": true,
-        "myclass": "",
-        "x": 610,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "d2318810c0df82fe",
-        "type": "ui-gauge-linear",
-        "z": "e93be114ec7eee96",
-        "name": "TLR",
-        "group": "6003beaf3e655f88",
-        "order": 4,
-        "width": "3",
-        "height": "1",
-        "min": "10",
-        "max": "40",
-        "ticks": [
-            {
-                "value": "20",
-                "label": ""
-            }
-        ],
-        "colors": [
-            {
-                "size": 100,
-                "color": "rgb(0, 227, 0)"
-            },
-            {
-                "size": 33,
-                "color": "rgb(4, 50, 255)"
-            }
-        ],
-        "zeroCrossColors": [
-            "#ff4c16",
-            "#00e300"
-        ],
-        "mode": "default",
-        "bar": "solid",
-        "minLabel": "",
-        "maxLabel": "",
-        "label": "Tempérarure Logement Retour",
-        "icon": " vngvm",
-        "unit": "°C",
-        "dim": 0.2,
-        "property": "payload",
-        "decimals": "1",
-        "zeros": true,
-        "myclass": "",
-        "x": 610,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "1be052351ee6fa2f",
-        "type": "ui-gauge-linear",
-        "z": "e93be114ec7eee96",
-        "name": "TCD",
-        "group": "6003beaf3e655f88",
-        "order": 5,
-        "width": "3",
-        "height": "1",
-        "min": "10",
-        "max": "80",
-        "ticks": [
-            {
-                "value": "30",
-                "label": ""
-            }
-        ],
-        "colors": [
-            {
-                "size": 100,
-                "color": "rgb(0, 227, 0)"
-            },
-            {
-                "size": 28,
-                "color": "rgb(4, 50, 255)"
-            }
-        ],
-        "zeroCrossColors": [
-            "#ff4c16",
-            "#00e300"
-        ],
-        "mode": "default",
-        "bar": "solid",
-        "minLabel": "",
-        "maxLabel": "",
-        "label": "Tempérarure Chaudière Départ",
-        "icon": "fireplace",
-        "unit": "°C",
-        "dim": 0.2,
-        "property": "payload",
-        "decimals": "1",
-        "zeros": true,
-        "myclass": "",
-        "x": 610,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "75dac0e35bc3daba",
-        "type": "ui-gauge-linear",
-        "z": "e93be114ec7eee96",
-        "name": "TCR",
-        "group": "6003beaf3e655f88",
-        "order": 6,
-        "width": "3",
-        "height": "1",
-        "min": "10",
-        "max": "80",
-        "ticks": [
-            {
-                "value": "20",
-                "label": ""
-            }
-        ],
-        "colors": [
-            {
-                "size": 100,
-                "color": "rgb(0, 227, 0)"
-            },
-            {
-                "size": 14,
-                "color": "rgb(4, 50, 255)"
-            }
-        ],
-        "zeroCrossColors": [
-            "#ff4c16",
-            "#00e300"
-        ],
-        "mode": "default",
-        "bar": "solid",
-        "minLabel": "",
-        "maxLabel": "",
-        "label": "Tempérarure Chaudière Retour",
-        "icon": "cggcjh",
-        "unit": "°C",
-        "dim": 0.2,
-        "property": "payload",
-        "decimals": "1",
-        "zeros": true,
-        "myclass": "",
-        "x": 610,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "326625b2ba884847",
-        "type": "ui-gauge-linear",
-        "z": "e93be114ec7eee96",
-        "name": "TAD",
-        "group": "51713a7681769857",
-        "order": 4,
-        "width": "3",
-        "height": "1",
-        "min": "10",
-        "max": "70",
-        "ticks": [
-            {
-                "value": "25",
-                "label": ""
-            }
-        ],
-        "colors": [
-            {
-                "size": 100,
-                "color": "rgb(0, 227, 0)"
-            },
-            {
-                "size": 25,
-                "color": "rgb(4, 50, 255)"
-            }
-        ],
-        "zeroCrossColors": [
-            "#ff4c16",
-            "#00e300"
-        ],
-        "mode": "default",
-        "bar": "solid",
-        "minLabel": "",
-        "maxLabel": "",
-        "label": "Tempérarure Accumulateur Départ",
-        "icon": "water-boiler",
-        "unit": "°C",
-        "dim": 0.2,
-        "property": "payload",
-        "decimals": "1",
-        "zeros": true,
-        "myclass": "",
-        "x": 610,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "08ebb80ccbf3d011",
-        "type": "ui-gauge-linear",
-        "z": "e93be114ec7eee96",
-        "name": "TAR",
-        "group": "51713a7681769857",
-        "order": 5,
-        "width": "3",
-        "height": "1",
-        "min": "10",
-        "max": "70",
-        "ticks": [
-            {
-                "value": "20",
-                "label": ""
-            }
-        ],
-        "colors": [
-            {
-                "size": 100,
-                "color": "rgb(0, 227, 0)"
-            },
-            {
-                "size": 16,
-                "color": "rgb(4, 50, 255)"
-            }
-        ],
-        "zeroCrossColors": [
-            "#ff4c16",
-            "#00e300"
-        ],
-        "mode": "default",
-        "bar": "solid",
-        "minLabel": "",
-        "maxLabel": "",
-        "label": "Tempérarure Accumulateur Retour",
-        "icon": "mbmnbvm",
-        "unit": "°C",
-        "dim": 0.2,
-        "property": "payload",
-        "decimals": "1",
-        "zeros": true,
-        "myclass": "",
-        "x": 610,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "2d89271b20cbe9e8",
-        "type": "ui-gauge-linear",
-        "z": "e93be114ec7eee96",
-        "name": "TA1",
-        "group": "51713a7681769857",
-        "order": 6,
-        "width": "3",
-        "height": "1",
-        "min": "10",
-        "max": "80",
-        "ticks": [
-            {
-                "value": "20",
-                "label": ""
-            }
-        ],
-        "colors": [
-            {
-                "size": 100,
-                "color": "rgb(0, 227, 0)"
-            },
-            {
-                "size": 14,
-                "color": "rgb(4, 50, 255)"
-            }
-        ],
-        "zeroCrossColors": [
-            "#ff4c16",
-            "#00e300"
-        ],
-        "mode": "default",
-        "bar": "solid",
-        "minLabel": "",
-        "maxLabel": "",
-        "label": "Tempérarure Accumulateur 1",
-        "icon": "dhjvhhrjvz",
-        "unit": "°C",
-        "dim": 0.2,
-        "property": "payload",
-        "decimals": "1",
-        "zeros": true,
-        "myclass": "",
-        "x": 610,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "79ea8cb40121c6d6",
-        "type": "ui-gauge-linear",
-        "z": "e93be114ec7eee96",
-        "name": "TA2",
-        "group": "51713a7681769857",
-        "order": 7,
-        "width": "3",
-        "height": "1",
-        "min": "10",
-        "max": "80",
-        "ticks": [],
-        "colors": [
-            {
-                "size": 100,
-                "color": "rgb(0, 227, 0)"
-            }
-        ],
-        "zeroCrossColors": [
-            "#ff4c16",
-            "#00e300"
-        ],
-        "mode": "fullBar",
-        "bar": "solid",
-        "minLabel": "",
-        "maxLabel": "",
-        "label": "Tempérarure Accumulateur 2",
-        "icon": "mnvm",
-        "unit": "°C",
-        "dim": 0.2,
-        "property": "payload",
-        "decimals": "1",
-        "zeros": true,
-        "myclass": "",
-        "x": 610,
-        "y": 560,
-        "wires": []
-    },
-    {
         "id": "813b082ae1f26a25",
         "type": "ui-chart",
         "z": "e93be114ec7eee96",
         "group": "51713a7681769857",
         "name": "Accumulateur",
-        "label": "Accumulateur",
-        "order": 8,
+        "label": "",
+        "order": 3,
         "chartType": "line",
         "category": "topic",
         "categoryType": "msg",
@@ -6703,7 +5755,7 @@
         "xAxisPropertyType": "timestamp",
         "xAxisType": "time",
         "xAxisFormat": "",
-        "xAxisFormatType": "HH:mm",
+        "xAxisFormatType": "{HH}:{mm}",
         "xmin": "",
         "xmax": "",
         "yAxisLabel": "Température [°C]",
@@ -6739,8 +5791,8 @@
             "#e5e5e5"
         ],
         "gridColorDefault": true,
-        "width": 6,
-        "height": "6",
+        "width": "8",
+        "height": "4",
         "className": "",
         "interpolation": "linear",
         "x": 640,
@@ -6804,8 +5856,7 @@
         "wires": [
             [
                 "0a69a079815d92a0",
-                "d790ea85e1b22aa9",
-                "f0a9892442a456e5"
+                "d790ea85e1b22aa9"
             ]
         ]
     },
@@ -6825,7 +5876,7 @@
         "xAxisPropertyType": "timestamp",
         "xAxisType": "time",
         "xAxisFormat": "",
-        "xAxisFormatType": "HH:mm",
+        "xAxisFormatType": "{HH}:{mm}",
         "xmin": "",
         "xmax": "",
         "yAxisLabel": "Puissance [W]",
@@ -6861,12 +5912,12 @@
             "#e5e5e5"
         ],
         "gridColorDefault": true,
-        "width": 6,
-        "height": "6",
+        "width": "8",
+        "height": "4",
         "className": "",
         "interpolation": "linear",
         "x": 720,
-        "y": 1100,
+        "y": 1060,
         "wires": [
             []
         ]
@@ -6875,14 +5926,17 @@
         "id": "d790ea85e1b22aa9",
         "type": "ui-gauge",
         "z": "e93be114ec7eee96",
-        "name": "",
-        "group": "45f5ebcd30441960",
-        "order": 2,
-        "width": 3,
-        "height": 3,
+        "name": "Vers réseau",
+        "group": "bacaa95877a7dfb6",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "2",
+        "height": "2",
         "gtype": "gauge-half",
         "gstyle": "needle",
-        "title": "Vers réseau",
+        "title": "",
+        "alwaysShowTitle": false,
         "units": "W",
         "icon": "transmission-tower-import",
         "prefix": "",
@@ -6890,23 +5944,27 @@
         "segments": [
             {
                 "from": "-8500",
-                "color": "#ea5353"
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
             },
             {
                 "from": "0",
-                "color": "#5cd65c"
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
             }
         ],
         "min": "-8500",
         "max": "8500",
-        "sizeThickness": 16,
-        "sizeGap": 4,
-        "sizeKeyThickness": 8,
+        "sizeThickness": "0",
+        "sizeGap": "0",
+        "sizeKeyThickness": "20",
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
         "x": 730,
-        "y": 1140,
+        "y": 1020,
         "wires": [
             []
         ]
@@ -6917,7 +5975,7 @@
         "z": "e93be114ec7eee96",
         "name": "",
         "group": "45f5ebcd30441960",
-        "order": 4,
+        "order": 3,
         "width": "3",
         "height": "3",
         "gtype": "gauge-half",
@@ -7011,7 +6069,7 @@
         "z": "e93be114ec7eee96",
         "name": "",
         "group": "45f5ebcd30441960",
-        "order": 5,
+        "order": 4,
         "width": "3",
         "height": "2",
         "gtype": "gauge-half",
@@ -7051,7 +6109,7 @@
         "z": "e93be114ec7eee96",
         "name": "T. Sol",
         "group": "45f5ebcd30441960",
-        "order": 6,
+        "order": 5,
         "width": 0,
         "height": 0,
         "min": "-4000",
@@ -7089,78 +6147,621 @@
         "wires": []
     },
     {
-        "id": "f0a9892442a456e5",
-        "type": "ui-gauge-linear",
+        "id": "1a1f6341c1211867",
+        "type": "ui-gauge",
         "z": "e93be114ec7eee96",
-        "name": "Vers Réseau",
-        "group": "bacaa95877a7dfb6",
+        "name": "TLD",
+        "group": "6003beaf3e655f88",
+        "order": 4,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "2",
+        "height": "2",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "",
+        "icon": "heating-coil",
+        "prefix": "",
+        "suffix": "°C",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#7ab3f0",
+                "text": "",
+                "textType": "value"
+            },
+            {
+                "from": "20",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "value"
+            },
+            {
+                "from": "40",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "value"
+            }
+        ],
+        "min": 0,
+        "max": "60",
+        "sizeThickness": "0",
+        "sizeGap": "0",
+        "sizeKeyThickness": "20",
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 430,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b149a2dedc4fb182",
+        "type": "ui-gauge",
+        "z": "e93be114ec7eee96",
+        "name": "TLR",
+        "group": "6003beaf3e655f88",
+        "order": 5,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "2",
+        "height": "2",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "",
+        "icon": "heating-coil",
+        "prefix": "",
+        "suffix": "°C",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#7ab3f0",
+                "text": "",
+                "textType": "value"
+            },
+            {
+                "from": "20",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "value"
+            },
+            {
+                "from": "40",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "value"
+            }
+        ],
+        "min": 0,
+        "max": "60",
+        "sizeThickness": "0",
+        "sizeGap": "0",
+        "sizeKeyThickness": "20",
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 430,
+        "y": 200,
+        "wires": [
+            [
+                "e41e487407c41b60"
+            ]
+        ]
+    },
+    {
+        "id": "085da48c8ee8f279",
+        "type": "ui-gauge",
+        "z": "e93be114ec7eee96",
+        "name": "TCD",
+        "group": "6003beaf3e655f88",
         "order": 1,
-        "width": 0,
-        "height": 0,
-        "min": "-8500",
-        "max": "8500",
-        "ticks": [
+        "value": "payload",
+        "valueType": "msg",
+        "width": "2",
+        "height": "2",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "",
+        "icon": "fireplace",
+        "prefix": "",
+        "suffix": "°C",
+        "segments": [
             {
-                "value": "1000",
-                "label": ""
+                "from": "0",
+                "color": "#7ab3f0",
+                "text": "",
+                "textType": "value"
             },
             {
-                "value": "2000",
-                "label": ""
+                "from": "20",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "value"
             },
             {
-                "value": "3000",
-                "label": ""
-            },
-            {
-                "value": "4000",
-                "label": ""
-            },
-            {
-                "value": "5000",
-                "label": ""
-            },
-            {
-                "value": "6000",
-                "label": ""
-            },
-            {
-                "value": "7000",
-                "label": ""
+                "from": "40",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "value"
             }
         ],
-        "colors": [
+        "min": 0,
+        "max": "60",
+        "sizeThickness": "0",
+        "sizeGap": "0",
+        "sizeKeyThickness": "20",
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 430,
+        "y": 260,
+        "wires": [
+            [
+                "16722ba2a4781bdd"
+            ]
+        ]
+    },
+    {
+        "id": "d809af38f3c069b1",
+        "type": "ui-gauge",
+        "z": "e93be114ec7eee96",
+        "name": "TCR",
+        "group": "6003beaf3e655f88",
+        "order": 2,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "2",
+        "height": "2",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "",
+        "icon": "fireplace",
+        "prefix": "",
+        "suffix": "°C",
+        "segments": [
             {
-                "size": 100,
-                "color": "rgb(0, 227, 0)"
+                "from": "0",
+                "color": "#7ab3f0",
+                "text": "",
+                "textType": "value"
+            },
+            {
+                "from": "20",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "value"
+            },
+            {
+                "from": "40",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "value"
             }
         ],
-        "zeroCrossColors": [
-            "#ff4c16",
-            "#00e300"
+        "min": 0,
+        "max": "60",
+        "sizeThickness": "0",
+        "sizeGap": "0",
+        "sizeKeyThickness": "20",
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 430,
+        "y": 320,
+        "wires": [
+            [
+                "3d0bd7b8646342b1"
+            ]
+        ]
+    },
+    {
+        "id": "36b5250ffa6e8d6b",
+        "type": "ui-gauge",
+        "z": "e93be114ec7eee96",
+        "name": "TAD",
+        "group": "51713a7681769857",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "2",
+        "height": "2",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "TAD",
+        "icon": "",
+        "prefix": "",
+        "suffix": "°C",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#7ab3f0",
+                "text": "",
+                "textType": "value"
+            },
+            {
+                "from": "20",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "value"
+            },
+            {
+                "from": "40",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "value"
+            }
         ],
-        "mode": "zeroCross",
-        "bar": "solid",
-        "minLabel": "",
-        "maxLabel": "",
-        "label": "Vers Réseau",
-        "icon": "transmission-tower-import",
-        "unit": "W",
-        "dim": 0.2,
-        "property": "payload",
-        "decimals": "0",
-        "zeros": false,
-        "myclass": "",
-        "x": 730,
-        "y": 1060,
-        "wires": []
+        "min": 0,
+        "max": "60",
+        "sizeThickness": "0",
+        "sizeGap": "0",
+        "sizeKeyThickness": "20",
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 430,
+        "y": 380,
+        "wires": [
+            [
+                "730cf87710f39e07"
+            ]
+        ]
+    },
+    {
+        "id": "b0d57fbd99750799",
+        "type": "ui-gauge",
+        "z": "e93be114ec7eee96",
+        "name": "TAR",
+        "group": "51713a7681769857",
+        "order": 2,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "2",
+        "height": "2",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "TAR",
+        "icon": "",
+        "prefix": "",
+        "suffix": "°C",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#7ab3f0",
+                "text": "",
+                "textType": "value"
+            },
+            {
+                "from": "20",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "value"
+            },
+            {
+                "from": "40",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "value"
+            }
+        ],
+        "min": 0,
+        "max": "60",
+        "sizeThickness": "0",
+        "sizeGap": "0",
+        "sizeKeyThickness": "20",
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 430,
+        "y": 440,
+        "wires": [
+            [
+                "11b404a1964950b3"
+            ]
+        ]
+    },
+    {
+        "id": "0d20b6d759fa8e48",
+        "type": "ui-gauge",
+        "z": "e93be114ec7eee96",
+        "name": "TA1",
+        "group": "51713a7681769857",
+        "order": 4,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "2",
+        "height": "2",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "TA1",
+        "icon": "",
+        "prefix": "",
+        "suffix": "°C",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#7ab3f0",
+                "text": "",
+                "textType": "value"
+            },
+            {
+                "from": "20",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "value"
+            },
+            {
+                "from": "40",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "value"
+            }
+        ],
+        "min": 0,
+        "max": "60",
+        "sizeThickness": "0",
+        "sizeGap": "0",
+        "sizeKeyThickness": "20",
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 430,
+        "y": 500,
+        "wires": [
+            [
+                "7e5b1fe8b239865b"
+            ]
+        ]
+    },
+    {
+        "id": "2802b4263cc4c7ec",
+        "type": "ui-gauge",
+        "z": "e93be114ec7eee96",
+        "name": "TA2",
+        "group": "51713a7681769857",
+        "order": 5,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "2",
+        "height": "2",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "TA2",
+        "icon": "",
+        "prefix": "",
+        "suffix": "°C",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#7ab3f0",
+                "text": "",
+                "textType": "value"
+            },
+            {
+                "from": "20",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "value"
+            },
+            {
+                "from": "40",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "value"
+            }
+        ],
+        "min": 0,
+        "max": "60",
+        "sizeThickness": "0",
+        "sizeGap": "0",
+        "sizeKeyThickness": "20",
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 430,
+        "y": 560,
+        "wires": [
+            [
+                "9bb086acdb48fca2"
+            ]
+        ]
+    },
+    {
+        "id": "5db8f4ed8811bf6e",
+        "type": "ui-gauge",
+        "z": "e93be114ec7eee96",
+        "name": "T. Ext.",
+        "group": "c842328fcbb96582",
+        "order": 2,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "2",
+        "height": "2",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "",
+        "icon": "forest",
+        "prefix": "",
+        "suffix": "°C",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#7ab3f0",
+                "text": "",
+                "textType": "value"
+            },
+            {
+                "from": "20",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "value"
+            }
+        ],
+        "min": 0,
+        "max": "40",
+        "sizeThickness": "0",
+        "sizeGap": "0",
+        "sizeKeyThickness": "20",
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 710,
+        "y": 820,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "69c88c7410f0e0fb",
+        "type": "ui-gauge",
+        "z": "e93be114ec7eee96",
+        "name": "T. Int.",
+        "group": "c842328fcbb96582",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "2",
+        "height": "2",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "",
+        "icon": "thermometer",
+        "prefix": "",
+        "suffix": "°C",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#7ab3f0",
+                "text": "",
+                "textType": "value"
+            },
+            {
+                "from": "20",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "value"
+            }
+        ],
+        "min": "10",
+        "max": "30",
+        "sizeThickness": "0",
+        "sizeGap": "0",
+        "sizeKeyThickness": "20",
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 710,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "75f3eaa8a84034ed",
+        "type": "ui-gauge",
+        "z": "e93be114ec7eee96",
+        "name": "T. Sol.",
+        "group": "c842328fcbb96582",
+        "order": 4,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "2",
+        "height": "2",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "",
+        "icon": "wall-sconce-flat-variant",
+        "prefix": "",
+        "suffix": "°C",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#7ab3f0",
+                "text": "",
+                "textType": "value"
+            },
+            {
+                "from": "20",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "value"
+            }
+        ],
+        "min": "10",
+        "max": "30",
+        "sizeThickness": "0",
+        "sizeGap": "0",
+        "sizeKeyThickness": "20",
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 710,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8a40e95477570f7b",
+        "type": "function",
+        "z": "e93be114ec7eee96",
+        "name": "si 0 > Err",
+        "func": "if (msg.payload == 0) return msg.payload = \"Err.\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 940,
+        "wires": [
+            [
+                "75f3eaa8a84034ed"
+            ]
+        ]
     },
     {
         "id": "85273cd58002e3bb",
         "type": "debug",
         "z": "3e956768f5245111",
         "name": "niveau",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -7168,37 +6769,9 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1150,
-        "y": 580,
+        "x": 470,
+        "y": 60,
         "wires": []
-    },
-    {
-        "id": "995a33bbd23af197",
-        "type": "change",
-        "z": "3e956768f5245111",
-        "name": "CLY",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "etat",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 270,
-        "y": 500,
-        "wires": [
-            [
-                "01dff4354e692f94",
-                "1e97cf5543b7d22e"
-            ]
-        ]
     },
     {
         "id": "f1e361a0446d1d25",
@@ -7368,23 +6941,6 @@
         "info": "",
         "x": 140,
         "y": 400,
-        "wires": []
-    },
-    {
-        "id": "43741dfa51219dc0",
-        "type": "debug",
-        "z": "3e956768f5245111",
-        "name": "niveau",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1210,
-        "y": 360,
         "wires": []
     },
     {
@@ -7617,7 +7173,7 @@
         "topic": "",
         "payload": "update",
         "payloadType": "str",
-        "x": 400,
+        "x": 340,
         "y": 380,
         "wires": [
             [
@@ -7688,12 +7244,12 @@
         "y": 360,
         "wires": [
             [
-                "619074547a3bd5c3",
-                "56e3c5968bd5d483"
+                "56e3c5968bd5d483",
+                "d2f065be36b6e16a"
             ],
             [
-                "619074547a3bd5c3",
-                "56e3c5968bd5d483"
+                "56e3c5968bd5d483",
+                "d2f065be36b6e16a"
             ]
         ]
     },
@@ -7717,9 +7273,7 @@
         "x": 690,
         "y": 400,
         "wires": [
-            [
-                "619074547a3bd5c3"
-            ]
+            []
         ]
     },
     {
@@ -7736,7 +7290,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 890,
-        "y": 400,
+        "y": 420,
         "wires": []
     },
     {
@@ -7793,70 +7347,6 @@
         "wires": [
             [
                 "950b7bcca1b67ab7"
-            ]
-        ]
-    },
-    {
-        "id": "01dff4354e692f94",
-        "type": "simpletime",
-        "z": "3e956768f5245111",
-        "name": "maintenant",
-        "mydate": false,
-        "myymd": false,
-        "myyear": false,
-        "mymonth": true,
-        "mymonthn": false,
-        "mydom": true,
-        "mydoy": false,
-        "myday": false,
-        "myhourpm": false,
-        "myhour": false,
-        "mytime": false,
-        "mytimes": true,
-        "myminute": false,
-        "myminutes": false,
-        "mysecond": false,
-        "mymillis": false,
-        "myepoch": false,
-        "myrawdate": false,
-        "mypm": false,
-        "x": 490,
-        "y": 620,
-        "wires": [
-            [
-                "ab60f83fa3fdf4dd"
-            ]
-        ]
-    },
-    {
-        "id": "c6a775c1cba2e89b",
-        "type": "simpletime",
-        "z": "3e956768f5245111",
-        "name": "maintenant",
-        "mydate": false,
-        "myymd": false,
-        "myyear": false,
-        "mymonth": true,
-        "mymonthn": false,
-        "mydom": true,
-        "mydoy": false,
-        "myday": false,
-        "myhourpm": false,
-        "myhour": false,
-        "mytime": false,
-        "mytimes": true,
-        "myminute": false,
-        "myminutes": false,
-        "mysecond": false,
-        "mymillis": false,
-        "myepoch": false,
-        "myrawdate": false,
-        "mypm": false,
-        "x": 470,
-        "y": 280,
-        "wires": [
-            [
-                "d47c933821101091"
             ]
         ]
     },
@@ -7963,48 +7453,6 @@
                 "166d691b6252c73e"
             ]
         ]
-    },
-    {
-        "id": "ab60f83fa3fdf4dd",
-        "type": "ui_text",
-        "z": "3e956768f5245111",
-        "group": "2332cad7958df7f2",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "dernier changement",
-        "format": "{{msg.mydom}} {{msg.mymonth}} {{msg.mytimes}} ",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": "",
-        "color": "#000000",
-        "x": 720,
-        "y": 620,
-        "wires": []
-    },
-    {
-        "id": "d47c933821101091",
-        "type": "ui_text",
-        "z": "3e956768f5245111",
-        "group": "2332cad7958df7f2",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "dernier changement",
-        "format": "{{msg.mydom}} {{msg.mymonth}} {{msg.mytimes}} ",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": "",
-        "color": "#000000",
-        "x": 680,
-        "y": 280,
-        "wires": []
     },
     {
         "id": "950b7bcca1b67ab7",
@@ -8192,112 +7640,6 @@
         ]
     },
     {
-        "id": "619074547a3bd5c3",
-        "type": "ui_chart",
-        "z": "3e956768f5245111",
-        "name": "",
-        "group": "2332cad7958df7f2",
-        "order": 9,
-        "width": 0,
-        "height": 0,
-        "label": "",
-        "chartType": "line",
-        "legend": "true",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "0",
-        "ymax": "100",
-        "removeOlder": "30",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "60",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#ff2600",
-            "#00f900",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 890,
-        "y": 340,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "10999e811dc53e11",
-        "type": "ui_led",
-        "z": "3e956768f5245111",
-        "order": 7,
-        "group": "2332cad7958df7f2",
-        "width": "3",
-        "height": "1",
-        "label": "Ouverture",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#000000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": false,
-        "name": "ouverture",
-        "x": 280,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "520dde8b57fae339",
-        "type": "ui_led",
-        "z": "3e956768f5245111",
-        "order": 8,
-        "group": "2332cad7958df7f2",
-        "width": "3",
-        "height": "1",
-        "label": "Fermeture",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#000000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": false,
-        "name": "fermeture",
-        "x": 280,
-        "y": 580,
-        "wires": []
-    },
-    {
         "id": "836b8ffa3a8a1e90",
         "type": "ui_led",
         "z": "3e956768f5245111",
@@ -8360,183 +7702,6 @@
         "wires": []
     },
     {
-        "id": "12757e81754fa134",
-        "type": "ui_led",
-        "z": "3e956768f5245111",
-        "order": 3,
-        "group": "2332cad7958df7f2",
-        "width": "3",
-        "height": "1",
-        "label": "Ouverture",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#000000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": false,
-        "name": "ouverture",
-        "x": 260,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "31a4fe42ea4c92a8",
-        "type": "ui_led",
-        "z": "3e956768f5245111",
-        "order": 4,
-        "group": "2332cad7958df7f2",
-        "width": "3",
-        "height": "1",
-        "label": "Fermeture",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#000000",
-                "value": "false",
-                "valueType": "bool"
-            },
-            {
-                "color": "#008000",
-                "value": "true",
-                "valueType": "bool"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": false,
-        "name": "fermeture",
-        "x": 260,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "8fb3a3272e2d5016",
-        "type": "ui_led",
-        "z": "3e956768f5245111",
-        "order": 6,
-        "group": "3e7a3cf8909ee831",
-        "width": "6",
-        "height": "1",
-        "label": "CSP Pompe solaire",
-        "labelPlacement": "left",
-        "labelAlignment": "left",
-        "colorForValue": [
-            {
-                "color": "#000000",
-                "value": "1",
-                "valueType": "num"
-            },
-            {
-                "color": "#008000",
-                "value": "0",
-                "valueType": "num"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showGlow": false,
-        "name": "CSP",
-        "x": 1310,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "c2513cf790536abc",
-        "type": "ui_level",
-        "z": "3e956768f5245111",
-        "group": "2332cad7958df7f2",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "name": "Logement",
-        "label": "Logement",
-        "colorHi": "#e60000",
-        "colorWarn": "#ff9900",
-        "colorNormal": "#00b33c",
-        "colorOff": "#595959",
-        "min": 0,
-        "max": 100,
-        "segWarn": "",
-        "segHigh": "",
-        "unit": "%",
-        "layout": "sh",
-        "channelA": "",
-        "channelB": "",
-        "decimals": 0,
-        "animations": "soft",
-        "shape": 2,
-        "colorschema": "valuedriven",
-        "textoptions": "default",
-        "colorText": "#eeeeee",
-        "fontLabel": "",
-        "fontValue": "",
-        "fontSmall": "",
-        "colorFromTheme": true,
-        "textAnimations": false,
-        "hideValue": false,
-        "tickmode": "off",
-        "peakmode": false,
-        "property": "payload",
-        "peaktime": 3000,
-        "x": 740,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "a492b04044599347",
-        "type": "ui_level",
-        "z": "3e956768f5245111",
-        "group": "2332cad7958df7f2",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "Chaudière",
-        "label": "Chaudière",
-        "colorHi": "#e60000",
-        "colorWarn": "#ff9900",
-        "colorNormal": "#00b33c",
-        "colorOff": "#595959",
-        "min": 0,
-        "max": 100,
-        "segWarn": "",
-        "segHigh": "",
-        "unit": "%",
-        "layout": "sh",
-        "channelA": "",
-        "channelB": "",
-        "decimals": 0,
-        "animations": "soft",
-        "shape": 2,
-        "colorschema": "fixed",
-        "textoptions": "default",
-        "colorText": "#eeeeee",
-        "fontLabel": "",
-        "fontValue": "",
-        "fontSmall": "",
-        "colorFromTheme": true,
-        "textAnimations": false,
-        "hideValue": false,
-        "tickmode": "off",
-        "peakmode": false,
-        "property": "payload",
-        "peaktime": 3000,
-        "x": 710,
-        "y": 180,
-        "wires": []
-    },
-    {
         "id": "abad97d67404ecc4",
         "type": "ha-sensor",
         "z": "3e956768f5245111",
@@ -8548,7 +7713,7 @@
         "attributes": [],
         "inputOverride": "allow",
         "outputProperties": [],
-        "x": 730,
+        "x": 710,
         "y": 460,
         "wires": [
             [
@@ -8588,9 +7753,8 @@
         "y": 500,
         "wires": [
             [
-                "995a33bbd23af197",
-                "3f0771a356d89604",
-                "225629ceca9f11ab"
+                "359a2f88c5edc367",
+                "1e97cf5543b7d22e"
             ]
         ]
     },
@@ -8606,9 +7770,9 @@
         "y": 160,
         "wires": [
             [
-                "907cb996001733da",
-                "60b95deba4548ef3",
-                "8b4eea0edb055b1f"
+                "12ba4ebe15975791",
+                "85273cd58002e3bb",
+                "a30e7dd0e62c81bb"
             ]
         ]
     },
@@ -8639,28 +7803,11 @@
         ]
     },
     {
-        "id": "3a94dfcbfc658da3",
-        "type": "debug",
-        "z": "3e956768f5245111",
-        "name": "debug 2",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 540,
-        "y": 660,
-        "wires": []
-    },
-    {
         "id": "a30e7dd0e62c81bb",
         "type": "function",
         "z": "3e956768f5245111",
         "name": "f. vanne",
-        "func": "// paramètres\nconst tempsMouvement = 205001; // temps de ouv/fer de la vanne en ms\nconst nom = \"niveauCCY\";\n\n\n// Code commun ------------------------------------\nlet niveau = context.get(\"niveau\") || 0;\n\n// Détermine l'état de la vanne\nlet etat = context.get(\"etat\") || \"arret\";\nif (msg.etat === true) {\t\n\tcontext.set(\"tempsDepart\", Date.now());\t// timestamp départ\n\tcontext.set(\"niveauDepart\", niveau);\t\t// \t\t\n\tif (msg.sens == \"ouv\") {\n\t\tetat = \"ouverture\";\n    }\n\telse if (msg.sens == \"fer\") {\n\t\tetat = \"fermeture\";\n\t}\n}\nelse if (msg.etat === false) {\n\tlet niveauActuel = calcul();\t\n\tetat = \"arret\";\n\tcontext.set(\"etat\", etat);\t\n\tmsg.payload = niveauActuel;\n\t//msg.debug = 888;\n\tcontext.set(\"niveau\", niveauActuel);\n\treturn msg;\n}\ncontext.set(\"etat\", etat);\n\t\n\n// update\nif (msg.payload == \"update\" && etat != \"arret\") {\n\tmsg.payload = calcul();\n\treturn msg;\n} \n\n// calcul\nfunction calcul() {\n\tlet tempsActuel = Date.now();\n\tlet tempsDepart = context.get(\"tempsDepart\");\n\tlet niveauDepart = context.get(\"niveauDepart\");\n    let tempsDelta = tempsActuel - tempsDepart;\n    let niveauDelta = 100 * tempsDelta / tempsMouvement;\n\tif (etat == \"fermeture\") niveauDelta =- niveauDelta\n\tlet niveauActuel = niveau + niveauDelta\n\tif (niveauActuel >= 100) niveauActuel = 100;\n\tif (niveauActuel <= 0) niveauActuel = 0; \n\tflow.set(nom, niveauActuel);\n    return niveauActuel;\n}",
+        "func": "// paramètres\nconst tempsMouvement = 205001; // temps de ouv/fer de la vanne en ms\nconst nom = \"niveauCCY\";\n\n\n// Code commun ------------------------------------\nlet niveau = context.get(\"niveau\") || 0;\n\n// Détermine l'état de la vanne\nlet etat = context.get(\"etat\") || \"arret\";\nif (msg.payload == \"ouv\" || (msg.payload == \"fer\")) {\t\n\tcontext.set(\"tempsDepart\", Date.now());\t// timestamp départ\n\tcontext.set(\"niveauDepart\", niveau);\t\t// \t\t\n\tif (msg.payload == \"ouv\") {\n\t\tetat = \"ouverture\";\n    }\n\telse if (msg.payload == \"fer\") {\n\t\tetat = \"fermeture\";\n\t}\n}\nelse if (msg.payload === false) {\n\tlet niveauActuel = calcul();\t\n\tetat = \"arret\";\n\tcontext.set(\"etat\", etat);\t\n\tmsg.payload = niveauActuel;\n\t//msg.debug = 888;\n\tcontext.set(\"niveau\", niveauActuel);\n\treturn msg;\n}\ncontext.set(\"etat\", etat);\n\t\n\n// update\nif (msg.payload == \"update\" && etat != \"arret\") {\n\tmsg.payload = calcul();\n\treturn msg;\n} \n\n// calcul\nfunction calcul() {\n\tlet tempsActuel = Date.now();\n\tlet tempsDepart = context.get(\"tempsDepart\");\n\tlet niveauDepart = context.get(\"niveauDepart\");\n    let tempsDelta = tempsActuel - tempsDepart;\n    let niveauDelta = 100 * tempsDelta / tempsMouvement;\n\tif (etat == \"fermeture\") niveauDelta =- niveauDelta\n\tlet niveauActuel = niveau + niveauDelta\n\tif (niveauActuel >= 100) niveauActuel = 100;\n\tif (niveauActuel <= 0) niveauActuel = 0; \n\tflow.set(nom, niveauActuel);\n    return Math.round(niveauActuel);\n}",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -8672,9 +7819,9 @@
         "wires": [
             [
                 "c823078f7702b640",
-                "a492b04044599347",
                 "88bb9e30a9a75cc5",
-                "c1534d3296bfab41"
+                "c1534d3296bfab41",
+                "31115d17025adee2"
             ]
         ]
     },
@@ -8700,7 +7847,7 @@
         "type": "function",
         "z": "3e956768f5245111",
         "name": "f. vanne",
-        "func": "// paramètres\nconst tempsMouvement = 205001; // temps de ouv/fer de la vanne en ms\nconst nom = \"niveauCLY\";\n\n\n// Code commun ------------------------------------\nlet niveau = context.get(\"niveau\") || 0;\n\n// Détermine l'état de la vanne\nlet etat = context.get(\"etat\") || \"arret\";\nif (msg.etat === true) {\t\n\tcontext.set(\"tempsDepart\", Date.now());\t// timestamp départ\n\tcontext.set(\"niveauDepart\", niveau);\t\t// \t\t\n\tif (msg.sens == \"ouv\") {\n\t\tetat = \"ouverture\";\n    }\n\telse if (msg.sens == \"fer\") {\n\t\tetat = \"fermeture\";\n\t}\n}\nelse if (msg.etat === false) {\n\tlet niveauActuel = calcul();\t\n\tetat = \"arret\";\n\tcontext.set(\"etat\", etat);\t\n\tmsg.payload = niveauActuel;\n\t//msg.debug = 888;\n\tcontext.set(\"niveau\", niveauActuel);\n\treturn msg;\n}\ncontext.set(\"etat\", etat);\n\t\n\n// update\nif (msg.payload == \"update\" && etat != \"arret\") {\n\tmsg.payload = calcul();\n\treturn msg;\n} \n\n// calcul\nfunction calcul() {\n\tlet tempsActuel = Date.now();\n\tlet tempsDepart = context.get(\"tempsDepart\");\n\tlet niveauDepart = context.get(\"niveauDepart\");\n    let tempsDelta = tempsActuel - tempsDepart;\n    let niveauDelta = 100 * tempsDelta / tempsMouvement;\n\tif (etat == \"fermeture\") niveauDelta =- niveauDelta\n\tlet niveauActuel = niveau + niveauDelta\n\tif (niveauActuel >= 100) niveauActuel = 100;\n\tif (niveauActuel <= 0) niveauActuel = 0; \n\tflow.set(nom, niveauActuel);\n    return niveauActuel;\n}",
+        "func": "// paramètres\nconst tempsMouvement = 205001; // temps de ouv/fer de la vanne en ms\nconst nom = \"niveauCLY\";\n\n\n// Code commun ------------------------------------\nlet niveau = context.get(\"niveau\") || 0;\n\n// Détermine l'état de la vanne\nlet etat = context.get(\"etat\") || \"arret\";\nif (msg.payload == \"ouv\" || (msg.payload == \"fer\")) {\t\n\tcontext.set(\"tempsDepart\", Date.now());\t// timestamp départ\n\tcontext.set(\"niveauDepart\", niveau);\t\t// \t\t\n\tif (msg.payload == \"ouv\") {\n\t\tetat = \"ouverture\";\n    }\n\telse if (msg.payload == \"fer\") {\n\t\tetat = \"fermeture\";\n\t}\n}\nelse if (msg.payload === false) {\n\tlet niveauActuel = calcul();\t\n\tetat = \"arret\";\n\tcontext.set(\"etat\", etat);\t\n\tmsg.payload = niveauActuel;\n\t//msg.debug = 888;\n\tcontext.set(\"niveau\", niveauActuel);\n\treturn msg;\n}\ncontext.set(\"etat\", etat);\n\t\n\n// update\nif (msg.payload == \"update\" && etat != \"arret\") {\n\tmsg.payload = calcul();\n\treturn msg;\n} \n\n// calcul\nfunction calcul() {\n\tlet tempsActuel = Date.now();\n\tlet tempsDepart = context.get(\"tempsDepart\");\n\tlet niveauDepart = context.get(\"niveauDepart\");\n    let tempsDelta = tempsActuel - tempsDepart;\n    let niveauDelta = 100 * tempsDelta / tempsMouvement;\n\tif (etat == \"fermeture\") niveauDelta =- niveauDelta\n\tlet niveauActuel = niveau + niveauDelta\n\tif (niveauActuel >= 100) niveauActuel = 100;\n\tif (niveauActuel <= 0) niveauActuel = 0; \n\tflow.set(nom, niveauActuel);\n    return Math.round(niveauActuel);\n}",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -8712,82 +7859,8 @@
         "wires": [
             [
                 "88bb9e30a9a75cc5",
-                "c2513cf790536abc",
-                "c1534d3296bfab41"
-            ]
-        ]
-    },
-    {
-        "id": "907cb996001733da",
-        "type": "change",
-        "z": "3e956768f5245111",
-        "name": "CCY",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "etat",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 250,
-        "y": 160,
-        "wires": [
-            [
-                "a30e7dd0e62c81bb",
-                "c6a775c1cba2e89b"
-            ]
-        ]
-    },
-    {
-        "id": "60b95deba4548ef3",
-        "type": "function",
-        "z": "3e956768f5245111",
-        "name": "sens",
-        "func": "if (msg.payload === true) {\n    if (msg.sens === \"ouv\") return [msg, null];\n    else if (msg.sens === \"fer\") return [null, msg];\n    else return;\n}\nelse if (msg.payload === false) return [msg, msg];\nreturn;",
-        "outputs": 2,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 130,
-        "y": 220,
-        "wires": [
-            [
-                "12757e81754fa134"
-            ],
-            [
-                "31a4fe42ea4c92a8"
-            ]
-        ]
-    },
-    {
-        "id": "3f0771a356d89604",
-        "type": "function",
-        "z": "3e956768f5245111",
-        "name": "sens",
-        "func": "if (msg.payload === true) {\n    if (msg.sens === \"ouv\") return [msg, null];\n    else if (msg.sens === \"fer\") return [null, msg];\n    else return;\n}\nelse if (msg.payload === false) return [msg, msg];\nreturn;",
-        "outputs": 2,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 150,
-        "y": 560,
-        "wires": [
-            [
-                "10999e811dc53e11"
-            ],
-            [
-                "520dde8b57fae339"
+                "c1534d3296bfab41",
+                "c509879c0d45aa8b"
             ]
         ]
     },
@@ -8817,175 +7890,12 @@
         ]
     },
     {
-        "id": "76089f8215067ea4",
-        "type": "ui-led",
-        "z": "3e956768f5245111",
-        "name": "led",
-        "group": "6003beaf3e655f88",
-        "order": 7,
-        "width": 1,
-        "height": "1",
-        "label": "CCY",
-        "labelPlacement": "left",
-        "labelAlignment": "flex-end",
-        "states": [
-            {
-                "value": "false",
-                "valueType": "bool",
-                "color": "#ffffff"
-            },
-            {
-                "value": "ouv",
-                "valueType": "str",
-                "color": "#ff7f00"
-            },
-            {
-                "value": "fer",
-                "valueType": "str",
-                "color": "#0432ff"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showBorder": false,
-        "showGlow": false,
-        "x": 250,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "8b4eea0edb055b1f",
-        "type": "function",
-        "z": "3e956768f5245111",
-        "name": "sens",
-        "func": "if (msg.payload === true) {\n    if (msg.sens === \"ouv\") {\n        msg.payload = \"ouv\";\n        return msg;\n    }\n    else if (msg.sens === \"fer\"){\n    if (msg.sens === \"fer\") {\n        msg.payload = \"fer\";\n        return msg;\n        }\n    }\n    else return;\n}\nelse if (msg.payload === false) return msg;\nreturn;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 130,
-        "y": 260,
-        "wires": [
-            [
-                "76089f8215067ea4",
-                "d6bdab4a680210c6"
-            ]
-        ]
-    },
-    {
-        "id": "a6c3f4bee39202f1",
-        "type": "ui-led",
-        "z": "3e956768f5245111",
-        "name": "led",
-        "group": "6003beaf3e655f88",
-        "order": 8,
-        "width": 1,
-        "height": "1",
-        "label": "CLY",
-        "labelPlacement": "left",
-        "labelAlignment": "flex-end",
-        "states": [
-            {
-                "value": "false",
-                "valueType": "bool",
-                "color": "#ffffff"
-            },
-            {
-                "value": "ouv",
-                "valueType": "str",
-                "color": "#ff7f00"
-            },
-            {
-                "value": "fer",
-                "valueType": "str",
-                "color": "#0432ff"
-            }
-        ],
-        "allowColorForValueInMessage": false,
-        "shape": "circle",
-        "showBorder": false,
-        "showGlow": false,
-        "x": 270,
-        "y": 620,
-        "wires": []
-    },
-    {
-        "id": "225629ceca9f11ab",
-        "type": "function",
-        "z": "3e956768f5245111",
-        "name": "sens",
-        "func": "if (msg.payload === true) {\n    if (msg.sens === \"ouv\") {\n        msg.payload = \"ouv\";\n        return msg;\n    }\n    else if (msg.sens === \"fer\"){\n    if (msg.sens === \"fer\") {\n        msg.payload = \"fer\";\n        return msg;\n        }\n    }\n    else return;\n}\nelse if (msg.payload === false) return msg;\nreturn;\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 150,
-        "y": 600,
-        "wires": [
-            [
-                "a6c3f4bee39202f1",
-                "4a5ce00b5bcc1524"
-            ]
-        ]
-    },
-    {
-        "id": "4a5ce00b5bcc1524",
-        "type": "ui-button-group",
-        "z": "3e956768f5245111",
-        "name": "Vanne Logement",
-        "group": "99f0023e00974b68",
-        "order": 1,
-        "width": 6,
-        "height": 1,
-        "label": "Vanne Logement",
-        "className": "",
-        "rounded": true,
-        "useThemeColors": false,
-        "passthru": true,
-        "options": [
-            {
-                "label": "FER",
-                "icon": "",
-                "value": "fer",
-                "valueType": "str",
-                "color": "#0432ff"
-            },
-            {
-                "label": "STOP",
-                "icon": "",
-                "value": "false",
-                "valueType": "bool",
-                "color": "#ffffff"
-            },
-            {
-                "label": "OUV",
-                "icon": "",
-                "value": "ouv",
-                "valueType": "str",
-                "color": "#ffa200"
-            }
-        ],
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 310,
-        "y": 660,
-        "wires": [
-            [
-                "3a94dfcbfc658da3"
-            ]
-        ]
-    },
-    {
         "id": "c461eb7e369247bd",
         "type": "ui-button-group",
         "z": "3e956768f5245111",
         "name": "qqq",
         "group": "99f0023e00974b68",
-        "order": 3,
+        "order": 1,
         "width": 6,
         "height": 1,
         "label": "qqq",
@@ -9068,48 +7978,286 @@
         ]
     },
     {
-        "id": "d6bdab4a680210c6",
-        "type": "ui-button-group",
+        "id": "24b6ad360ca1f959",
+        "type": "ui-text",
         "z": "3e956768f5245111",
-        "name": "Vanne Chaudière",
-        "group": "99f0023e00974b68",
-        "order": 2,
-        "width": "3",
-        "height": 1,
-        "label": "Vanne Chaudière",
+        "group": "95506f33052e25ed",
+        "order": 6,
+        "width": 2,
+        "height": "1",
+        "name": "last change",
+        "label": "Dernier changement",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
         "className": "",
-        "rounded": true,
-        "useThemeColors": false,
-        "passthru": true,
-        "options": [
+        "value": "payload",
+        "valueType": "msg",
+        "x": 470,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "12ba4ebe15975791",
+        "type": "function",
+        "z": "3e956768f5245111",
+        "name": "horloge",
+        "func": "let maintenant = new Date();\nlet dateHeure = maintenant.toLocaleString('fr-FR', {\n    day: '2-digit',\n    month: 'short',\n    hour: '2-digit',\n    minute: '2-digit',\n    second: '2-digit'\n});\n\nmsg.payload = `${dateHeure}`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 220,
+        "wires": [
+            [
+                "24b6ad360ca1f959"
+            ]
+        ]
+    },
+    {
+        "id": "aa9f1a8239860cb0",
+        "type": "ui-text",
+        "z": "3e956768f5245111",
+        "group": "95506f33052e25ed",
+        "order": 8,
+        "width": 2,
+        "height": "1",
+        "name": "last change",
+        "label": "Dernier changement",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 490,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "359a2f88c5edc367",
+        "type": "function",
+        "z": "3e956768f5245111",
+        "name": "horloge",
+        "func": "let maintenant = new Date();\nlet dateHeure = maintenant.toLocaleString('fr-FR', {\n    day: '2-digit',\n    month: 'short',\n    hour: '2-digit',\n    minute: '2-digit',\n    second: '2-digit'\n});\n\nmsg.payload = `${dateHeure}`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 560,
+        "wires": [
+            [
+                "aa9f1a8239860cb0"
+            ]
+        ]
+    },
+    {
+        "id": "31115d17025adee2",
+        "type": "ui-gauge",
+        "z": "3e956768f5245111",
+        "name": "CCY",
+        "group": "95506f33052e25ed",
+        "order": 1,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 2,
+        "height": "2",
+        "gtype": "gauge-half",
+        "gstyle": "rounded",
+        "title": "",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "%",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
             {
-                "label": "FER",
-                "icon": "",
-                "value": "fer",
-                "valueType": "str",
-                "color": "#0432ff"
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
             },
             {
-                "label": "STOP",
-                "icon": "",
-                "value": "false",
-                "valueType": "bool",
-                "color": "#ffffff"
+                "from": "60",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
             },
             {
-                "label": "OUV",
-                "icon": "",
-                "value": "ouv",
-                "valueType": "str",
-                "color": "#ffa200"
+                "from": "80",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
             }
         ],
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 290,
-        "y": 320,
+        "min": 0,
+        "max": "100",
+        "sizeThickness": "8",
+        "sizeGap": "2",
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 710,
+        "y": 160,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "c509879c0d45aa8b",
+        "type": "ui-gauge",
+        "z": "3e956768f5245111",
+        "name": "CLY",
+        "group": "95506f33052e25ed",
+        "order": 3,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 2,
+        "height": "2",
+        "gtype": "gauge-half",
+        "gstyle": "rounded",
+        "title": "",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "%",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "60",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "80",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": "8",
+        "sizeGap": "2",
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 710,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d2f065be36b6e16a",
+        "type": "ui-chart",
+        "z": "3e956768f5245111",
+        "group": "95506f33052e25ed",
+        "name": "Vannes",
+        "label": "",
+        "order": 5,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "{HH}:{mm}",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "0",
+        "ymax": "100",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "false",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": "2",
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#ea5353",
+            "#5cd65c",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": "4",
+        "height": "3",
+        "className": "",
+        "interpolation": "step",
+        "x": 900,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7c76e739d9c05e31",
+        "type": "inject",
+        "z": "3e956768f5245111",
+        "name": "30'' pulse",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "30",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 510,
+        "y": 360,
+        "wires": [
+            [
+                "88bb9e30a9a75cc5"
+            ]
         ]
     },
     {
@@ -11133,6 +10281,82 @@
         "wires": [
             [
                 "4d9889814eb99784"
+            ]
+        ]
+    },
+    {
+        "id": "b6cadc40055a8bad",
+        "type": "mqtt out",
+        "z": "0fba407004275a36",
+        "name": "",
+        "topic": "RPC/test",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "ee5cd5699662a4d3",
+        "x": 1000,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "97bd2519543687b1",
+        "type": "inject",
+        "z": "0fba407004275a36",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "10",
+        "payloadType": "num",
+        "x": 830,
+        "y": 80,
+        "wires": [
+            [
+                "b6cadc40055a8bad"
+            ]
+        ]
+    },
+    {
+        "id": "3aefa5ebd983ce52",
+        "type": "inject",
+        "z": "0fba407004275a36",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "2",
+        "payloadType": "num",
+        "x": 830,
+        "y": 120,
+        "wires": [
+            [
+                "b6cadc40055a8bad"
             ]
         ]
     }
