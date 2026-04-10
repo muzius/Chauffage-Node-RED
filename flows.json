@@ -4310,10 +4310,10 @@
         "type": "ui-switch",
         "z": "bad0d5e8ce8cf0c6",
         "name": "CC1",
-        "label": "Corps de chauffe 1 (CC1)",
+        "label": "CC1",
         "group": "eaccc7ab948dd75e",
-        "order": 2,
-        "width": 2,
+        "order": 3,
+        "width": "1",
         "height": "1",
         "passthru": true,
         "decouple": false,
@@ -4344,10 +4344,10 @@
         "type": "ui-switch",
         "z": "bad0d5e8ce8cf0c6",
         "name": "CC2",
-        "label": "Corps de chauffe 2 (CC2)",
+        "label": "CC2",
         "group": "eaccc7ab948dd75e",
-        "order": 3,
-        "width": 2,
+        "order": 4,
+        "width": "1",
         "height": "1",
         "passthru": true,
         "decouple": false,
@@ -4378,10 +4378,10 @@
         "type": "ui-switch",
         "z": "bad0d5e8ce8cf0c6",
         "name": "CC3",
-        "label": "Corps de chauffe 3 (CC3)",
+        "label": "CC3",
         "group": "eaccc7ab948dd75e",
-        "order": 4,
-        "width": 2,
+        "order": 5,
+        "width": "1",
         "height": "1",
         "passthru": true,
         "decouple": false,
@@ -5034,54 +5034,19 @@
         ]
     },
     {
-        "id": "5e853c813621de5a",
-        "type": "ui-switch",
-        "z": "bad0d5e8ce8cf0c6",
-        "name": "Accu Auto",
-        "label": "Accu Auto",
-        "group": "eaccc7ab948dd75e",
-        "order": 1,
-        "width": 1,
-        "height": "1",
-        "passthru": false,
-        "decouple": true,
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "className": "",
-        "layout": "row-left-swapped",
-        "clickableArea": "switch",
-        "onvalue": "ON",
-        "onvalueType": "str",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "OFF",
-        "offvalueType": "str",
-        "officon": "",
-        "offcolor": "",
-        "x": 400,
-        "y": 920,
-        "wires": [
-            [
-                "53be2d0bbbd285bd",
-                "785b6b92be692c44"
-            ]
-        ]
-    },
-    {
         "id": "53be2d0bbbd285bd",
         "type": "debug",
         "z": "bad0d5e8ce8cf0c6",
         "name": "debug 12",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 600,
-        "y": 920,
+        "x": 1000,
+        "y": 900,
         "wires": []
     },
     {
@@ -5092,8 +5057,8 @@
         "links": [
             "a88af2e83577e1ab"
         ],
-        "x": 75,
-        "y": 980,
+        "x": 135,
+        "y": 960,
         "wires": [
             [
                 "785b6b92be692c44"
@@ -5179,31 +5144,12 @@
         "links": [
             "7ea715eb423857b3"
         ],
-        "x": 75,
+        "x": 135,
         "y": 920,
         "wires": [
             [
-                "6e029f8b659748f9"
-            ]
-        ]
-    },
-    {
-        "id": "6e029f8b659748f9",
-        "type": "function",
-        "z": "bad0d5e8ce8cf0c6",
-        "name": "surchauffe",
-        "func": "if(msg.payload > 80) {\n    msg.payload = false;\n    return msg;\n}\n\nreturn;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 190,
-        "y": 920,
-        "wires": [
-            [
-                "5e853c813621de5a"
+                "b8d6859f2b211635",
+                "785b6b92be692c44"
             ]
         ]
     },
@@ -5212,14 +5158,14 @@
         "type": "function",
         "z": "bad0d5e8ce8cf0c6",
         "name": "Corps de chauffe",
-        "func": "let AccuAuto = context.get(\"AccuAuto\");\nlet AccuLevel = context.get(\"AccuLevel\");\nlet oldSolaire = context.get(\"oldSolaire\");\nlet puissance = 2000; // puissance corps de chauffe W\n\n// heure actuelle\nlet now = new Date();\nlet heure = Number(new Intl.DateTimeFormat(\"en-GB\", { // heure locale suisse\n    timeZone: \"Europe/Zurich\",\n    hour: \"numeric\",\n    hour12: false\n}).format(now));\n\nlet actif = false;\nif (heure >= 10 && heure < 18 && AccuAuto)\n    actif = true;\n\nif (msg.payload === \"ON\" || msg.payload === \"OFF\") {\n    AccuAuto = !AccuAuto;\n    context.set(\"AccuAuto\", AccuAuto);\n    msg.payload = AccuAuto;\n//    if (!AccuAuto) \n//        return [null, null, null, msg, {payload: (AccuLevel)}];\n    return [null, null, null, msg, null];\n}\n\nswitch(AccuLevel) {\n    case 0: // Arret\n        if (msg.payload > puissance && actif)         // +1 >1\n            AccuLevel = 1;            \n        break;\n\n    case 1: // 1 corps de chauffe actif\n        if (msg.payload < 0 || !actif)                // -1 0\n            AccuLevel = 0;        \n        else if (msg.payload > puissance)                // +1 >2\n            AccuLevel = 2;    \n        break;\n\n    case 2: // 2 corps de chauffe actif\n        if (msg.payload < -puissance || !actif)        // -2 >0\n            AccuLevel = 0;    \n        else if (msg.payload < 0)                        // -1 >1\n            AccuLevel = 1;            \n        else if (msg.payload > puissance)                // +1 >3\n            AccuLevel = 3;\n        break;\n\n    case 3: // 3 corps de chauffe actif\n        if (msg.payload < (2 * -puissance) || !actif) // -3 >0\n            AccuLevel = 0;\n        else if (msg.payload < -puissance)               // -2 >1\n            AccuLevel = 1;            \n        else if (msg.payload < 0)                        // -1 >2\n            AccuLevel = 2;\n        break;\n\n    default:\n        AccuLevel = 0;                                   //    >0\n}\n\ncontext.set(\"AccuLevel\", AccuLevel);\n\nreturn [\n    {payload: AccuLevel >= 1},\n    {payload: AccuLevel >= 2},\n    {payload: AccuLevel >= 3},\n    null,\n    {topic: \"Corps de chauffe\", payload: (AccuLevel * puissance)}\n];\n\n",
+        "func": "let ReglagePuissance = context.get(\"ReglagePuissance\");\nlet EtatAccu = context.get(\"EtatAccu\");\nlet AccuLevel = context.get(\"AccuLevel\");\nlet oldSolaire = context.get(\"oldSolaire\");\nlet puissance = 2000; // puissance corps de chauffe W\nlet message = \"null\";\n\n// heure actuelle\nlet now = new Date();\nlet heure = Number(new Intl.DateTimeFormat(\"en-GB\", { // heure locale suisse\n    timeZone: \"Europe/Zurich\",\n    hour: \"numeric\",\n    hour12: false\n}).format(now));\n\nlet actif = false;\nif (heure >= 10 && heure < 18 && EtatAccu)\n    actif = true;\n\n// surchauffe\nif (msg.topic === \"TA1\" || msg.topic === \"TA2\" || msg.topic === \"TAD\" ){   \n    if(msg.payload > 80){\n        EtatAccu = false;        \n        message = (\"surchauffe, cpt: \" + msg.topic + \", val: \" + msg.payload);           \n    }\n    else {\n        EtatAccu = true;\n        message = (\"temp. OK, cpt: \" + msg.topic + \", val: \" + msg.payload);          \n    }\n    context.set(\"EtatAccu\", EtatAccu);\n    //return [null, null, null, msg, null];\n}\n\n// commande\nif (msg.topic === \"reglage\") {\n    ReglagePuissance = msg.payload;\n    context.set(\"ReglagePuissance\", ReglagePuissance);\n    message = (\"modif réglage: \" + ReglagePuissance);\n    //return [null, null, null, msg, null];\n}\n\nswitch(AccuLevel) {\n    case 0: // Arret\n        if (msg.payload > puissance && ReglagePuissance > 0 && EtatAccu)           // +1 >1\n            AccuLevel = 1;            \n        break;\n\n    case 1: // 1 corps de chauffe actif\n        if (msg.payload < 0 || ReglagePuissance === 0 || !EtatAccu)                // -1 >0\n            AccuLevel = 0;        \n        else if (msg.payload > puissance && ReglagePuissance > 1)                  // +1 >2\n            AccuLevel = 2;    \n        break;\n\n    case 2: // 2 corps de chauffe actif\n        if (msg.payload < -puissance || ReglagePuissance === 0 || !EtatAccu)       // -2 >0\n            AccuLevel = 0;    \n        else if (msg.payload < 0 || ReglagePuissance < 2)                          // -1 >1\n            AccuLevel = 1;            \n        else if (msg.payload > puissance && ReglagePuissance > 2)                  // +1 >3\n            AccuLevel = 3;\n        break;\n\n    case 3: // 3 corps de chauffe actif\n        if (msg.payload < (2 * -puissance) || ReglagePuissance === 0 || !EtatAccu) // -3 >0\n            AccuLevel = 0;\n        else if (msg.payload < -puissance || ReglagePuissance < 3)                 // -2 >1\n            AccuLevel = 1;            \n        else if (msg.payload < 0 || ReglagePuissance < 2)                          // -1 >2\n            AccuLevel = 2;\n        break;\n\n    default:\n        AccuLevel = 0;                                                             //    >0\n}\n\ncontext.set(\"AccuLevel\", AccuLevel);\n\nif (message === \"null\")\n    message = \"Modif auto: \" + AccuLevel;\n\nreturn [\n    {payload: AccuLevel >= 1},\n    {payload: AccuLevel >= 2},\n    {payload: AccuLevel >= 3},\n    {payload: message},\n    {topic: \"Corps de chauffe\", payload: (AccuLevel * puissance)}\n];\n\n",
         "outputs": 5,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
+        "x": 550,
         "y": 1000,
         "wires": [
             [
@@ -5233,7 +5179,7 @@
             ],
             [
                 "5adbd7ab89a5e428",
-                "5e853c813621de5a"
+                "ce64e0739c334050"
             ],
             [
                 "53be2d0bbbd285bd",
@@ -5473,14 +5419,14 @@
         "type": "debug",
         "z": "bad0d5e8ce8cf0c6",
         "name": "debug 14",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 420,
+        "x": 600,
         "y": 1100,
         "wires": []
     },
@@ -5489,7 +5435,7 @@
         "type": "debug",
         "z": "bad0d5e8ce8cf0c6",
         "name": "debug 13",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -5529,8 +5475,312 @@
         "links": [
             "5a2eb6df33c2d8c3"
         ],
-        "x": 805,
+        "x": 795,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "b92ac0305ce340c7",
+        "type": "ui-dropdown",
+        "z": "bad0d5e8ce8cf0c6",
+        "group": "eaccc7ab948dd75e",
+        "name": "Selecteur",
+        "label": "Accu auto (Puissance)",
+        "tooltip": "",
+        "order": 1,
+        "width": "2",
+        "height": "1",
+        "passthru": true,
+        "multiple": false,
+        "chips": false,
+        "clearable": false,
+        "options": [
+            {
+                "label": "OFF",
+                "value": "0",
+                "type": "str"
+            },
+            {
+                "label": "max 1000",
+                "value": "1",
+                "type": "str"
+            },
+            {
+                "label": "max 2000",
+                "value": "2",
+                "type": "str"
+            },
+            {
+                "label": "max 3000",
+                "value": "3",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "typeIsComboBox": false,
+        "msgTrigger": "onChange",
+        "x": 260,
+        "y": 1000,
+        "wires": [
+            [
+                "b8d6859f2b211635",
+                "785b6b92be692c44"
+            ]
+        ]
+    },
+    {
+        "id": "573fd52c0b6fa059",
+        "type": "inject",
+        "z": "bad0d5e8ce8cf0c6",
+        "name": "OFF",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "reglage",
+        "payload": "0",
+        "payloadType": "str",
+        "x": 130,
+        "y": 1000,
+        "wires": [
+            [
+                "b92ac0305ce340c7"
+            ]
+        ]
+    },
+    {
+        "id": "b8d6859f2b211635",
+        "type": "debug",
+        "z": "bad0d5e8ce8cf0c6",
+        "name": "debug 17",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "d20aa00aaf0f4dc0",
+        "type": "function",
+        "z": "bad0d5e8ce8cf0c6",
+        "name": "surchauffe",
+        "func": "msg.topic = \"surchauffe\";\n\nif(msg.payload > 80) {\n\n    msg.payload = \"true\";\n    return msg;\n}\n\nif(msg.payload < 60) {\n\n    msg.payload = \"false\";\n    return msg;\n}\n\nreturn;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 1400,
+        "wires": [
+            [
+                "ab8fd66373248536",
+                "785b6b92be692c44"
+            ]
+        ]
+    },
+    {
+        "id": "ab8fd66373248536",
+        "type": "debug",
+        "z": "bad0d5e8ce8cf0c6",
+        "name": "surchauffe",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "bfb33884605c6d70",
+        "type": "inject",
+        "z": "bad0d5e8ce8cf0c6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "90",
+        "payloadType": "num",
+        "x": 390,
+        "y": 1360,
+        "wires": [
+            [
+                "d20aa00aaf0f4dc0"
+            ]
+        ]
+    },
+    {
+        "id": "501d464a6650736c",
+        "type": "inject",
+        "z": "bad0d5e8ce8cf0c6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "70",
+        "payloadType": "num",
+        "x": 390,
+        "y": 1400,
+        "wires": [
+            [
+                "d20aa00aaf0f4dc0"
+            ]
+        ]
+    },
+    {
+        "id": "b4b420e7c4e7d681",
+        "type": "inject",
+        "z": "bad0d5e8ce8cf0c6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "50",
+        "payloadType": "num",
+        "x": 390,
+        "y": 1440,
+        "wires": [
+            [
+                "d20aa00aaf0f4dc0"
+            ]
+        ]
+    },
+    {
+        "id": "ce64e0739c334050",
+        "type": "ui-text",
+        "z": "bad0d5e8ce8cf0c6",
+        "group": "eaccc7ab948dd75e",
+        "order": 2,
+        "width": "2",
+        "height": "1",
+        "name": "",
+        "label": "Messages",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 850,
         "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "9bfaf5aa66952051",
+        "type": "change",
+        "z": "bad0d5e8ce8cf0c6",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "surchauffe",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 520,
+        "wires": [
+            [
+                "da95c82a968e2285"
+            ]
+        ]
+    },
+    {
+        "id": "5efbdded4756e5a4",
+        "type": "inject",
+        "z": "bad0d5e8ce8cf0c6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "80",
+        "payloadType": "num",
+        "x": 290,
+        "y": 520,
+        "wires": [
+            [
+                "9bfaf5aa66952051"
+            ]
+        ]
+    },
+    {
+        "id": "da95c82a968e2285",
+        "type": "debug",
+        "z": "bad0d5e8ce8cf0c6",
+        "name": "debug 22",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 520,
         "wires": []
     },
     {
@@ -6118,7 +6368,8 @@
             [
                 "59a93f340bbba712",
                 "813b082ae1f26a25",
-                "36b5250ffa6e8d6b"
+                "36b5250ffa6e8d6b",
+                "7ea715eb423857b3"
             ]
         ]
     },
@@ -6156,7 +6407,8 @@
             [
                 "59a93f340bbba712",
                 "813b082ae1f26a25",
-                "0d20b6d759fa8e48"
+                "0d20b6d759fa8e48",
+                "7ea715eb423857b3"
             ]
         ]
     },
@@ -6175,7 +6427,8 @@
             [
                 "59a93f340bbba712",
                 "813b082ae1f26a25",
-                "2802b4263cc4c7ec"
+                "2802b4263cc4c7ec",
+                "7ea715eb423857b3"
             ]
         ]
     },
@@ -7024,8 +7277,8 @@
         "removeOlderUnit": "86400",
         "removeOlderPoints": "",
         "colors": [
-            "#217821",
             "#ffa500",
+            "#217821",
             "#a52a2a",
             "#217821",
             "#a347e1",
@@ -7047,7 +7300,7 @@
         "className": "",
         "interpolation": "linear",
         "x": 720,
-        "y": 1060,
+        "y": 1080,
         "wires": [
             []
         ]
@@ -7094,7 +7347,7 @@
         "styleGlow": false,
         "className": "",
         "x": 730,
-        "y": 1020,
+        "y": 1040,
         "wires": [
             []
         ]
@@ -7324,7 +7577,7 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 430,
+        "x": 490,
         "y": 140,
         "wires": [
             []
@@ -7378,7 +7631,7 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 430,
+        "x": 490,
         "y": 200,
         "wires": [
             [
@@ -7434,7 +7687,7 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 430,
+        "x": 490,
         "y": 260,
         "wires": [
             [
@@ -7490,7 +7743,7 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 430,
+        "x": 490,
         "y": 320,
         "wires": [
             [
@@ -7546,7 +7799,7 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 430,
+        "x": 490,
         "y": 380,
         "wires": [
             [
@@ -7602,7 +7855,7 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 430,
+        "x": 490,
         "y": 440,
         "wires": [
             [
@@ -7658,12 +7911,11 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 430,
+        "x": 490,
         "y": 500,
         "wires": [
             [
-                "7e5b1fe8b239865b",
-                "7ea715eb423857b3"
+                "7e5b1fe8b239865b"
             ]
         ]
     },
@@ -7715,12 +7967,11 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 430,
+        "x": 490,
         "y": 560,
         "wires": [
             [
-                "9bb086acdb48fca2",
-                "7ea715eb423857b3"
+                "9bb086acdb48fca2"
             ]
         ]
     },
@@ -7948,7 +8199,7 @@
             "c96b4e896e6f8078"
         ],
         "x": 675,
-        "y": 1100,
+        "y": 1120,
         "wires": []
     },
     {
@@ -7960,8 +8211,8 @@
         "links": [
             "42b21b4d9572bd0d"
         ],
-        "x": 525,
-        "y": 540,
+        "x": 425,
+        "y": 620,
         "wires": []
     },
     {
@@ -8032,7 +8283,7 @@
         "mode": "link",
         "links": [],
         "x": 675,
-        "y": 1140,
+        "y": 1160,
         "wires": []
     },
     {
@@ -8071,7 +8322,7 @@
         "styleGlow": false,
         "className": "",
         "x": 740,
-        "y": 1180,
+        "y": 1200,
         "wires": [
             []
         ]
@@ -8088,8 +8339,58 @@
         "y": 1020,
         "wires": [
             [
-                "0a69a079815d92a0"
+                "0a69a079815d92a0",
+                "a04b9bb46c88aedd",
+                "6ae5dc6ec2dd7cbc"
             ]
+        ]
+    },
+    {
+        "id": "a04b9bb46c88aedd",
+        "type": "debug",
+        "z": "e93be114ec7eee96",
+        "name": "debug 23",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "6ae5dc6ec2dd7cbc",
+        "type": "api-call-service",
+        "z": "e93be114ec7eee96",
+        "name": "Corps de chauffe",
+        "server": "a5986c3613f86bbc",
+        "version": 7,
+        "debugenabled": false,
+        "action": "input_number.set_value",
+        "floorId": [],
+        "areaId": [],
+        "deviceId": [],
+        "entityId": [
+            "input_number.cdfaccu"
+        ],
+        "labelId": [],
+        "data": "{\"value\": {{payload}}}",
+        "dataType": "json",
+        "mergeContext": "",
+        "mustacheAltTags": false,
+        "outputProperties": [],
+        "queue": "none",
+        "blockInputOverrides": true,
+        "domain": "input_number",
+        "service": "set_value",
+        "x": 750,
+        "y": 980,
+        "wires": [
+            []
         ]
     },
     {
@@ -11695,5 +11996,38 @@
                 "b6cadc40055a8bad"
             ]
         ]
+    },
+    {
+        "id": "9cf31c77fc2f2085",
+        "type": "i2c in",
+        "z": "0fba407004275a36",
+        "name": "",
+        "busno": "1",
+        "address": "",
+        "command": "",
+        "count": "1",
+        "x": 1010,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6e36bbf43478cb34",
+        "type": "i2c out",
+        "z": "0fba407004275a36",
+        "name": "",
+        "busno": "1",
+        "address": "",
+        "command": "",
+        "payload": "payload",
+        "payloadType": "msg",
+        "count": "1",
+        "x": 1010,
+        "y": 480,
+        "wires": [
+            []
+        ],
+        "info": "| Champ          | Exemple de valeur       | Description                                  |\n|----------------|-------------------------|----------------------------------------------|\n| Bus Number     | `1`                     | `/dev/i2c-1` (Raspberry Pi).                 |\n| Bus Address    | `0x50` ou `80`          | Adresse I²C de l'esclave (7 bits).           |\n| Command        | `0x00`                  | Registre/commande (optionnel).               |\n| Payload        | `[0xAA, 0xBB]`          | Données à envoyer.                           |\n| Send bytes     | `2`                     | Nombre d'octets à envoyer.                   |\n| Name           | `EEPROM Write`          | Nom personnalisé (optionnel).                |\n\n"
     }
 ]
