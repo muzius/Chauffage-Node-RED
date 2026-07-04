@@ -1,6 +1,6 @@
 Chauffage
 =========
 
-### About
+### Fonction
 
 gestion du chauffage
