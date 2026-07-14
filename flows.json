@@ -3667,14 +3667,14 @@
         "id": "8cae6036f22da9f4",
         "type": "rpi-gpio out",
         "z": "bad0d5e8ce8cf0c6",
-        "name": "CC1",
+        "name": "CC1 (15)",
         "pin": "22",
         "set": true,
         "level": "0",
         "freq": "",
         "out": "out",
         "bcm": true,
-        "x": 1010,
+        "x": 1100,
         "y": 1040,
         "wires": []
     },
@@ -3682,14 +3682,14 @@
         "id": "2e518e487f779969",
         "type": "rpi-gpio out",
         "z": "bad0d5e8ce8cf0c6",
-        "name": "CC2",
+        "name": "CC2 (13)",
         "pin": "27",
         "set": true,
         "level": "0",
         "freq": "",
         "out": "out",
         "bcm": true,
-        "x": 1010,
+        "x": 1100,
         "y": 1100,
         "wires": []
     },
@@ -3751,14 +3751,14 @@
         "id": "4ee0c134286ff892",
         "type": "rpi-gpio out",
         "z": "bad0d5e8ce8cf0c6",
-        "name": "CC3",
+        "name": "CC3 (11)",
         "pin": "17",
         "set": true,
         "level": "0",
         "freq": "",
         "out": "out",
         "bcm": true,
-        "x": 1010,
+        "x": 1100,
         "y": 1160,
         "wires": []
     },
@@ -4331,7 +4331,7 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 830,
+        "x": 910,
         "y": 1040,
         "wires": [
             [
@@ -4365,7 +4365,7 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 830,
+        "x": 910,
         "y": 1100,
         "wires": [
             [
@@ -4399,7 +4399,7 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 830,
+        "x": 910,
         "y": 1160,
         "wires": [
             [
@@ -4540,7 +4540,7 @@
         "type": "debug",
         "z": "bad0d5e8ce8cf0c6",
         "name": "debug sig",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4557,7 +4557,7 @@
         "type": "debug",
         "z": "bad0d5e8ce8cf0c6",
         "name": "debug t",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -5045,7 +5045,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1000,
+        "x": 1080,
         "y": 980,
         "wires": []
     },
@@ -5078,8 +5078,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
-        "y": 1240,
+        "x": 490,
+        "y": 1280,
         "wires": [
             [],
             []
@@ -5127,8 +5127,8 @@
         "topic": "",
         "payload": "iso",
         "payloadType": "date",
-        "x": 670,
-        "y": 1340,
+        "x": 650,
+        "y": 1660,
         "wires": [
             [
                 "0ee85d866cdca13f",
@@ -5158,14 +5158,14 @@
         "type": "function",
         "z": "bad0d5e8ce8cf0c6",
         "name": "Corps de chauffe",
-        "func": "let ReglagePuissance = context.get(\"ReglagePuissance\");\nlet EtatAccu = context.get(\"EtatAccu\");\nlet AccuLevel = context.get(\"AccuLevel\");\nlet oldSolaire = context.get(\"oldSolaire\");\nlet puissance = 2000; // puissance corps de chauffe W\nlet message = \"null\";\n\n// heure actuelle\nlet now = new Date();\nlet heure = Number(new Intl.DateTimeFormat(\"en-GB\", { // heure locale suisse\n    timeZone: \"Europe/Zurich\",\n    hour: \"numeric\",\n    hour12: false\n}).format(now));\n\nlet actif = false;\nif (heure >= 10 && heure < 18 && EtatAccu)\n    actif = true;\n\n// surchauffe\nif (msg.topic === \"TA1\" || msg.topic === \"TA2\" || msg.topic === \"TAD\" ){   \n    if(msg.payload > 80){\n        EtatAccu = false;        \n        message = (\"surchauffe, cpt: \" + msg.topic + \", val: \" + msg.payload);           \n    }\n    else {\n        EtatAccu = true;\n        message = (\"temp. OK, cpt: \" + msg.topic + \", val: \" + msg.payload);          \n    }\n    context.set(\"EtatAccu\", EtatAccu);\n    //return [null, null, null, msg, null];\n}\n\n// commande\nif (msg.topic === \"reglage\") {\n    ReglagePuissance = msg.payload;\n    context.set(\"ReglagePuissance\", ReglagePuissance);\n    message = (\"modif réglage: \" + ReglagePuissance);\n    //return [null, null, null, msg, null];\n}\n\nswitch(AccuLevel) {\n    case 0: // Arret\n        if (msg.payload > puissance && ReglagePuissance > 0 && EtatAccu)           // +1 >1\n            AccuLevel = 1;            \n        break;\n\n    case 1: // 1 corps de chauffe actif\n        if (msg.payload < 0 || ReglagePuissance === 0 || !EtatAccu)                // -1 >0\n            AccuLevel = 0;        \n        else if (msg.payload > puissance && ReglagePuissance > 1)                  // +1 >2\n            AccuLevel = 2;    \n        break;\n\n    case 2: // 2 corps de chauffe actif\n        if (msg.payload < -puissance || ReglagePuissance === 0 || !EtatAccu)       // -2 >0\n            AccuLevel = 0;    \n        else if (msg.payload < 0 || ReglagePuissance < 2)                          // -1 >1\n            AccuLevel = 1;            \n        else if (msg.payload > puissance && ReglagePuissance > 2)                  // +1 >3\n            AccuLevel = 3;\n        break;\n\n    case 3: // 3 corps de chauffe actif\n        if (msg.payload < (2 * -puissance) || ReglagePuissance === 0 || !EtatAccu) // -3 >0\n            AccuLevel = 0;\n        else if (msg.payload < -puissance || ReglagePuissance < 3)                 // -2 >1\n            AccuLevel = 1;            \n        else if (msg.payload < 0 || ReglagePuissance < 2)                          // -1 >2\n            AccuLevel = 2;\n        break;\n\n    default:\n        AccuLevel = 0;                                                             //    >0\n}\n\ncontext.set(\"AccuLevel\", AccuLevel);\n\nif (message === \"null\")\n    message = \"Modif auto: \" + AccuLevel;\n\nreturn [\n    {payload: AccuLevel >= 1},\n    {payload: AccuLevel >= 2},\n    {payload: AccuLevel >= 3},\n    {payload: message},\n    {topic: \"Corps de chauffe\", payload: (AccuLevel * puissance)}\n];\n\n",
-        "outputs": 5,
+        "func": "let ReglagePuissance = context.get(\"ReglagePuissance\");\nlet EtatAccu = context.get(\"EtatAccu\");\nlet AccuLevel = context.get(\"AccuLevel\");\nlet oldSolaire = context.get(\"oldSolaire\");\nlet puissance = 2000; // puissance corps de chauffe W\nlet message = \"null\";\n\n// heure actuelle\nlet now = new Date();\nlet heure = Number(new Intl.DateTimeFormat(\"en-GB\", { // heure locale suisse\n    timeZone: \"Europe/Zurich\",\n    hour: \"numeric\",\n    hour12: false\n}).format(now));\n\nlet actif = false;\nif (heure >= 10 && heure < 18 && EtatAccu)\n    actif = true;\n\n// surchauffe\nif (msg.topic === \"TA1\" || msg.topic === \"TA2\" || msg.topic === \"TAD\" ){   \n    if(msg.payload > 80){\n        EtatAccu = false;        \n        message = (\"T. accu. (\" + msg.topic + \") : \" + msg.payload + \" °C = SURCHAUFFE\");          \n    }\n    else {\n        EtatAccu = true;\n        message = (\"T. accu. (\" + msg.topic + \") : \" + msg.payload + \" °C = OK\");          \n    }\n    context.set(\"EtatAccu\", EtatAccu);\n    //return [null, null, null, msg, null];\n}\n\n// commande\nif (msg.topic === \"reglage\") {\n    ReglagePuissance = msg.payload;\n    context.set(\"ReglagePuissance\", ReglagePuissance);\n    message = (\"Modif limite: \" + ReglagePuissance);\n    //return [null, null, null, msg, null];\n}\n\nswitch(AccuLevel) {\n    case 0: // Arret\n        if (msg.payload > puissance && ReglagePuissance > 0 && EtatAccu) {          // +1 >1\n            AccuLevel = 1;\n            message = (\"Changement auto: 0 > 1\");\n        }                    \n        break;\n\n    case 1: // 1 corps de chauffe actif\n        if (msg.payload < 0 || ReglagePuissance === 0 || !EtatAccu) {               // -1 >0\n            AccuLevel = 0; \n            message = (\"Changement auto: 1 > OFF\");       \n        }\n        else if (msg.payload > puissance && ReglagePuissance > 1) {                 // +1 >2\n            AccuLevel = 2; \n            message = (\"Changement auto: 1 > 2\");   \n        }\n        break;\n\n    case 2: // 2 corps de chauffe actif\n        if (msg.payload < -puissance || ReglagePuissance === 0 || !EtatAccu) {      // -2 >0\n            AccuLevel = 0;    \n            message = (\"Changement auto: 2 > OFF\");\n        }\n        else if (msg.payload < 0 || ReglagePuissance < 2) {                         // -1 >1\n            AccuLevel = 1;         \n            message = (\"Changement auto: 2 > 1\");   \n        }\n        else if (msg.payload > puissance && ReglagePuissance > 2) {                 // +1 >3\n            AccuLevel = 3;\n            message = (\"Changement auto: 2 > 3\");\n        }\n        break;\n\n    case 3: // 3 corps de chauffe actif\n        if (msg.payload < (2 * -puissance) || ReglagePuissance === 0 || !EtatAccu) {// -3 >0\n            AccuLevel = 0;\n            message = (\"Changement auto: 3 > OFF\");\n        }\n        else if (msg.payload < -puissance || ReglagePuissance < 3) {                // -2 >1\n            AccuLevel = 1;            \n            message = (\"Changement auto: 3 > 1\");\n        } \n        else if (msg.payload < 0 || ReglagePuissance < 2) {                         // -1 >2\n            AccuLevel = 2;\n            message = (\"Changement auto: 3 > 2\");\n        } \n        break;\n\n\n// ajouter niveau 4\n// ----------------\n\n\n\n    default:\n        AccuLevel = 0;                                                             //    >0\n}\n\ncontext.set(\"AccuLevel\", AccuLevel);\n\nif (message === \"null\")\n    message = \"Limite: \" + AccuLevel;\n\nreturn [\n    {payload: AccuLevel >= 1},\n    {payload: AccuLevel >= 2},\n    {payload: AccuLevel >= 3},\n    {payload: AccuLevel >= 4},\n    {payload: message},\n    {topic: \"Corps de chauffe\", payload: (AccuLevel * puissance)}\n];\n\n",
+        "outputs": 6,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 550,
+        "x": 630,
         "y": 1080,
         "wires": [
             [
@@ -5178,8 +5178,10 @@
                 "e36dc28683e001da"
             ],
             [
-                "5adbd7ab89a5e428",
-                "ce64e0739c334050"
+                "b7b3cd5655fcc504"
+            ],
+            [
+                "41384cb049a217a9"
             ],
             [
                 "53be2d0bbbd285bd",
@@ -5426,7 +5428,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 600,
+        "x": 680,
         "y": 1180,
         "wires": []
     },
@@ -5442,8 +5444,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1300,
-        "y": 1340,
+        "x": 1280,
+        "y": 1660,
         "wires": []
     },
     {
@@ -5458,8 +5460,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 960,
-        "y": 1320,
+        "x": 940,
+        "y": 1640,
         "wires": [
             [
                 "6e5edc294aba4dd6"
@@ -5475,8 +5477,8 @@
         "links": [
             "5a2eb6df33c2d8c3"
         ],
-        "x": 795,
-        "y": 1260,
+        "x": 875,
+        "y": 1320,
         "wires": []
     },
     {
@@ -5487,9 +5489,9 @@
         "name": "Selecteur",
         "label": "Accu auto (Puissance)",
         "tooltip": "",
-        "order": 1,
+        "order": 2,
         "width": "2",
-        "height": "1",
+        "height": 1,
         "passthru": false,
         "multiple": false,
         "chips": false,
@@ -5527,7 +5529,7 @@
         "wires": [
             [
                 "b8d6859f2b211635",
-                "785b6b92be692c44"
+                "77f5b1aace962f01"
             ]
         ]
     },
@@ -5573,7 +5575,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 640,
+        "x": 720,
         "y": 980,
         "wires": []
     },
@@ -5581,6 +5583,7 @@
         "id": "d20aa00aaf0f4dc0",
         "type": "function",
         "z": "bad0d5e8ce8cf0c6",
+        "d": true,
         "name": "surchauffe",
         "func": "msg.topic = \"surchauffe\";\n\nif(msg.payload > 80) {\n\n    msg.payload = \"true\";\n    return msg;\n}\n\nif(msg.payload < 60) {\n\n    msg.payload = \"false\";\n    return msg;\n}\n\nreturn;",
         "outputs": 1,
@@ -5603,7 +5606,7 @@
         "type": "debug",
         "z": "bad0d5e8ce8cf0c6",
         "name": "surchauffe",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -5636,7 +5639,8 @@
         "y": 1440,
         "wires": [
             [
-                "d20aa00aaf0f4dc0"
+                "d20aa00aaf0f4dc0",
+                "5591a16cb950c845"
             ]
         ]
     },
@@ -5661,7 +5665,8 @@
         "y": 1480,
         "wires": [
             [
-                "d20aa00aaf0f4dc0"
+                "d20aa00aaf0f4dc0",
+                "5591a16cb950c845"
             ]
         ]
     },
@@ -5686,33 +5691,10 @@
         "y": 1520,
         "wires": [
             [
-                "d20aa00aaf0f4dc0"
+                "d20aa00aaf0f4dc0",
+                "5591a16cb950c845"
             ]
         ]
-    },
-    {
-        "id": "ce64e0739c334050",
-        "type": "ui-text",
-        "z": "bad0d5e8ce8cf0c6",
-        "group": "eaccc7ab948dd75e",
-        "order": 3,
-        "width": "2",
-        "height": "1",
-        "name": "",
-        "label": "Messages",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#717171",
-        "wrapText": false,
-        "className": "",
-        "value": "payload",
-        "valueType": "msg",
-        "x": 850,
-        "y": 1220,
-        "wires": []
     },
     {
         "id": "9bfaf5aa66952051",
@@ -5771,7 +5753,7 @@
         "type": "debug",
         "z": "bad0d5e8ce8cf0c6",
         "name": "debug 22",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -5790,7 +5772,7 @@
         "name": "CLP Auto",
         "label": "CLP Auto",
         "group": "eaccc7ab948dd75e",
-        "order": 2,
+        "order": 3,
         "width": "1",
         "height": "1",
         "passthru": true,
@@ -5879,9 +5861,9 @@
         "z": "bad0d5e8ce8cf0c6",
         "group": "eaccc7ab948dd75e",
         "name": "CCE  timeline",
-        "order": 7,
-        "width": "4",
-        "height": "1",
+        "order": 8,
+        "width": 7,
+        "height": null,
         "label": "CDF",
         "barHeight": "20",
         "states": [
@@ -5908,6 +5890,153 @@
         "showOnlyStartEndTimes": false,
         "x": 510,
         "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6263cf468d4dfed8",
+        "type": "rpi-gpio out",
+        "z": "bad0d5e8ce8cf0c6",
+        "name": "CC3 (5)",
+        "pin": "3",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 1100,
+        "y": 1220,
+        "wires": []
+    },
+    {
+        "id": "b7b3cd5655fcc504",
+        "type": "ui-switch",
+        "z": "bad0d5e8ce8cf0c6",
+        "name": "CC4",
+        "label": "CC4",
+        "group": "eaccc7ab948dd75e",
+        "order": 7,
+        "width": "1",
+        "height": "1",
+        "passthru": true,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-left-swapped",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 910,
+        "y": 1220,
+        "wires": [
+            [
+                "6263cf468d4dfed8"
+            ]
+        ]
+    },
+    {
+        "id": "77f5b1aace962f01",
+        "type": "change",
+        "z": "bad0d5e8ce8cf0c6",
+        "name": "topic",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "reglage",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 1080,
+        "wires": [
+            [
+                "785b6b92be692c44"
+            ]
+        ]
+    },
+    {
+        "id": "5591a16cb950c845",
+        "type": "change",
+        "z": "bad0d5e8ce8cf0c6",
+        "name": "topic",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "TA1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 590,
+        "y": 1440,
+        "wires": [
+            [
+                "785b6b92be692c44"
+            ]
+        ]
+    },
+    {
+        "id": "41384cb049a217a9",
+        "type": "function",
+        "z": "bad0d5e8ce8cf0c6",
+        "name": "Tbl. messages",
+        "func": "// 1. Récupérer le tableau depuis le contexte (nommé \"messages\")\nlet messages = context.get(\"messages\") || [];\n\n// 2. Récupérer l'heure actuelle au format HH:MM:SS\nlet maintenant = new Date();\nlet hh = String(maintenant.getHours()).padStart(2, '0');\nlet mm = String(maintenant.getMinutes()).padStart(2, '0');\nlet ss = String(maintenant.getSeconds()).padStart(2, '0');\nlet horodatage = hh + \":\" + mm + \":\" + ss + \" : \";\n\n// 3. Associer l'heure au nouveau texte reçu\nlet nouveauTexte = horodatage + String(msg.payload);\nmessages.push(nouveauTexte);\n\n// 4. Si on dépasse 10 éléments, on supprime le plus ancien\nif (messages.length > 10) {\n    messages.shift();\n}\n\n// 5. Sauvegarder le tableau mis à jour dans le contexte\ncontext.set(\"messages\", messages);\n\n// 6. Joindre toutes les lignes avec deux espaces de fin + retour à la ligne\nmsg.payload = messages.join(\"<br>\");\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 1280,
+        "wires": [
+            [
+                "8d35207dd25edb6d"
+            ]
+        ]
+    },
+    {
+        "id": "8d35207dd25edb6d",
+        "type": "ui-template",
+        "z": "bad0d5e8ce8cf0c6",
+        "group": "eaccc7ab948dd75e",
+        "page": "",
+        "ui": "",
+        "name": "Messages",
+        "order": 1,
+        "width": "3",
+        "height": "4",
+        "head": "",
+        "format": "<div style=\"margin: 0 !important; padding: 0 !important; line-height: 1.2;\">\n    <strong>Messages :</strong>\n    <div v-html=\"msg.payload\" style=\"margin-top: 2px !important; padding: 0 !important;\"></div>\n</div>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1110,
+        "y": 1280,
         "wires": [
             []
         ]
